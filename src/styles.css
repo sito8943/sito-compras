@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import './styles/variables.css';
-@import './styles/components.css';
+@import './app/styles/variables.css';
+@import './app/styles/components.css';
 
 textarea {
     resize: none;
