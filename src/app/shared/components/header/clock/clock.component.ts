@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit, OnDestroy, signal } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
 // utils
@@ -11,12 +11,19 @@ import { getFormattedDateTime } from '../../../../core/utils/date'
     templateUrl: './clock.component.html',
     styleUrl: './clock.component.css',
 })
-export class ClockComponent {
-    dateNow: string = getFormattedDateTime()
+export class ClockComponent implements OnInit, OnDestroy {
+    dateNow = signal(getFormattedDateTime())
+    private intervalId?: number
 
-    constructor() {
-        setInterval(() => {
-            this.dateNow = getFormattedDateTime()
+    ngOnInit() {
+        this.intervalId = window.setInterval(() => {
+            this.dateNow.set(getFormattedDateTime())
         }, 1000)
+    }
+
+    ngOnDestroy() {
+        if (this.intervalId) {
+            clearInterval(this.intervalId)
+        }
     }
 }
