@@ -1,0 +1,17 @@
+<div>
+    <div class="flex flex-col" [class.appear]="isAnimated">
+        <div class="page-header">
+            <button
+                *ngIf="showBackButton"
+                (click)="goBack()"
+                class="action"
+                name="atras">
+                <fa-icon [icon]="faArrowLeft"></fa-icon>
+            </button>
+            <h2 class="text-3xl font-bold">{{ title }}</h2>
+        </div>
+    </div>
+    <div class="px-5 py-3 h-full">
+        <ng-content></ng-content>
+    </div>
+</div>
