@@ -1,11 +1,11 @@
-<header class="header">
+<header class="header" [class.fixed]="isScrolled()">
     <div class="flex gap-2 items-center">
         <button
             type="button"
             name="abrir-menu"
             aria-label="Abrir menú"
-            onClick="{openDrawer}"
-            className="button menu animated">
+            (click)="openDrawer()"
+            class="button menu animated">
             <fa-icon [icon]="faBars"></fa-icon>
         </button>
         <h1 class="text-lg text-text pointer-events-none poppins font-bold">

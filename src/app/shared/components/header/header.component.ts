@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, HostListener, signal } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
 // icons
@@ -16,6 +16,20 @@ import { ClockComponent } from './clock/clock.component'
     styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+    isScrolled = signal(false)
+
+    @HostListener('window:scroll', ['$event'])
+    onWindowScroll() {
+        const verticalOffset =
+            window.pageYOffset ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop ||
+            0
+        console.log(verticalOffset)
+        if (verticalOffset > 100) this.isScrolled.set(true)
+        else this.isScrolled.set(false)
+    }
+
     faBars = faBars
 
     openDrawer() {
