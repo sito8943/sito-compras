@@ -1,6 +1,8 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { PageComponent } from '../../shared/components/page/page.component'
+import { CheckListStoreService } from '../../core/services/store.service'
+import { CheckList } from '../../core/models/Checklist'
 
 @Component({
     selector: 'app-home',
@@ -9,4 +11,11 @@ import { PageComponent } from '../../shared/components/page/page.component'
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
 })
-export class HomeComponent {}
+export class HomeComponent implements OnInit {
+    lists: CheckList[] = []
+    constructor(private checklistStore: CheckListStoreService) {}
+
+    ngOnInit() {
+        this.lists = this.checklistStore.checklist()
+    }
+}

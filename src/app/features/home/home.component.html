@@ -4,6 +4,20 @@
         [isLoading]="false"
         [isAnimated]="true"
         [showBackButton]="false">
-        <p>Welcome to the home page!</p>
+        <ul *ngIf="lists.length > 0; else noLists">
+            <li *ngFor="let list of lists; let i = index">
+                <h3>{{ list.title }}</h3>
+                <ul>
+                    <li *ngFor="let producto of list.items">
+                        {{ producto.count }} x {{ producto.name }} -
+                        {{ producto.price | currency }}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ng-template #noLists>
+            <p>No tienes listas de compras guardadas.</p>
+        </ng-template>
     </app-page>
 </main>
