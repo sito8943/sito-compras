@@ -1,4 +1,4 @@
-@import './variables.css';
+@reference './variables.css';
 
 a,
 button {
