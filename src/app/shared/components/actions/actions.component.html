@@ -1,0 +1,14 @@
+<ul class="actions-container {{ className }}">
+    <li *ngFor="let action of actions">
+        <app-action
+            [id]="action.id"
+            [icon]="action.icon"
+            [tooltip]="action.tooltip"
+            [hidden]="action.hidden"
+            [disabled]="action.disabled"
+            [showText]="showActionTexts"
+            [showTooltips]="showTooltips"
+            (clicked)="action.clicked()">
+        </app-action>
+    </li>
+</ul>

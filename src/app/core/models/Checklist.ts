@@ -1,6 +1,7 @@
+import { BaseDto } from './BaseDto'
 import { Product } from './Product'
 
-export type CheckList = {
+export interface CheckList extends BaseDto {
     title: string
     completed: boolean
     items: Product[]

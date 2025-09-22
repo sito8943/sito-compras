@@ -1,5 +1,9 @@
 import { Injectable, signal } from '@angular/core'
+
+// services
 import { LocalStorageService } from './local-storage.service'
+
+// models
 import { CheckList } from '../models/Checklist'
 
 @Injectable({

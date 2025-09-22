@@ -9,9 +9,17 @@
                 <fa-icon [icon]="faArrowLeft"></fa-icon>
             </button>
             <h2 class="text-3xl font-bold">{{ title }}</h2>
+            <app-actions [actions]="actionList()"> </app-actions>
         </div>
     </div>
     <div class="px-5 py-3 h-full">
         <ng-content></ng-content>
     </div>
+    <button
+        *ngIf="addOptions"
+        (click)="addOptions.clicked?.()"
+        name="agregar"
+        class="submit button icon-button fab primary min-xs:!hidden">
+        <fa-icon [icon]="faAdd"></fa-icon>
+    </button>
 </div>
