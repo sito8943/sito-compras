@@ -18,7 +18,6 @@ import { MaintenanceComponent } from '../../../features/maintenance/maintenance.
 import { routes } from '../../../app.routes'
 
 describe('MaintenanceGuard', () => {
-    console.log(`MaintenanceGuard test - INIT`)
     // let component: AppComponent
     let fixture: ComponentFixture<AppComponent>
     let maintenanceFixture: ComponentFixture<MaintenanceComponent>
@@ -56,28 +55,20 @@ describe('MaintenanceGuard', () => {
     })
 
     it('should be created', () => {
-        console.log('MaintenanceGuard - should create')
-
         expect(maintenanceGuard).toBeTruthy()
         fixture.whenStable().then(() => {
-            console.log('LOCATION PATH: ' + location.path())
             expect(location.path()).toBe('/')
         })
     })
 
     it('should block navigation when site is offline', fakeAsync(() => {
-        console.log(
-            'MaintenanceGuard - should block navigation when site is offline'
-        )
         mockSiteStatusService.setIsSiteOnline(false)
         maintenanceFixture.detectChanges()
 
-        console.log('maintenanceGuard: ', maintenanceGuard)
         expect(mockSiteStatusService.getIsSiteOnline()).toBeFalsy()
         tick()
         fixture.detectChanges()
         fixture.whenStable().then(() => {
-            console.log('LOCATION PATH: ' + location.path())
             // Check if the guard properly redirects to /maintenance when the site is offline
             // expect(location.path()).toBe('/maintenance') // Remove this comment here
         })

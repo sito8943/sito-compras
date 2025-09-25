@@ -7,7 +7,6 @@ import { SiteStatusService } from '../services/site-status.service'
 import { MaintenanceGuard } from './maintenance/maintenance.guard'
 
 describe('Functional Guards', () => {
-    console.log('Functional Guards test - INIT')
     let fixture: ComponentFixture<AppComponent>
     let appComponent: AppComponent
     let router: Router
@@ -32,23 +31,12 @@ describe('Functional Guards', () => {
     })
 
     it('should navigate to the HomeComponent when the path is "/"', async () => {
-        console.log(
-            'Functional Guards - should navigate to the HomeComponent when the path is "/"'
-        )
-        console.log(appComponent)
-        console.log(fixture.debugElement.nativeElement.textContent)
-        // Log do caminho atual da rota
-        console.log('Current route:', router.url)
         router.navigateByUrl('/home')
         fixture.detectChanges()
-        console.log('Current route:', router.url)
         router.navigateByUrl('/maintenance')
         fixture.detectChanges()
-        console.log('Current route:', router.url)
         expect(appComponent).toBeTruthy()
     })
-
-    console.log('Functional Guards test - STOP')
 })
 
 // Estes testes cobrem os seguintes cenários:
