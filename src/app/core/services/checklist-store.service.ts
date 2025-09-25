@@ -31,6 +31,17 @@ export class CheckListStoreService {
         this.persist()
     }
 
+    updateChecklistTitle(id: number | null, newTitle: string) {
+        this.checklist.update(lists => {
+            const checklist = lists.find(l => l.id === id)
+            if (checklist) {
+                checklist.title = newTitle
+            }
+            return [...lists]
+        })
+        this.persist()
+    }
+
     removeList(title: string) {
         this.checklist.update(lists => lists.filter(l => l.title !== title))
         this.persist()

@@ -1,0 +1,15 @@
+<main>
+    <app-page
+        title="{{ listTitle() }}"
+        [isLoading]="false"
+        [isAnimated]="true"
+        [showBackButton]="true"
+        [editableTitle]="true"
+        (editTitleFunction)="editTitle($event)"
+        (addFunction)="addProduct()">
+        <app-products
+            [products]="products()"
+            (add)="addProduct()"
+            (remove)="removeProduct($event)"></app-products>
+    </app-page>
+</main>

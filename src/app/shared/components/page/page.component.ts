@@ -1,9 +1,16 @@
-import { Component, HostListener, signal, Input } from '@angular/core'
+import {
+    Component,
+    HostListener,
+    signal,
+    Input,
+    Output,
+    EventEmitter,
+} from '@angular/core'
 import { CommonModule, Location } from '@angular/common'
 
 // icons
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faAdd } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
     selector: 'app-page',
@@ -15,9 +22,12 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 export class PageComponent {
     isScrolled = signal(false)
     @Input() title = ''
+    @Input() editableTitle = false
     @Input() isLoading = false
     @Input() isAnimated = false
     @Input() showBackButton = false
+    @Output() editTitleFunction = new EventEmitter<string>()
+    @Output() addFunction = new EventEmitter<void>()
 
     constructor(private location: Location) {}
 
@@ -38,4 +48,5 @@ export class PageComponent {
     }
 
     faArrowLeft = faArrowLeft
+    faAdd = faAdd
 }

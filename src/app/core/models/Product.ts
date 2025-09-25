@@ -1,5 +1,6 @@
 export type Product = {
-    id: string
+    id: number
+    checklistId: number
     name: string
     price: number
     count: number

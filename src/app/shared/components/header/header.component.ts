@@ -25,7 +25,7 @@ export class HeaderComponent {
             document.documentElement.scrollTop ||
             document.body.scrollTop ||
             0
-        console.log(verticalOffset)
+
         if (verticalOffset > 100) this.isScrolled.set(true)
         else this.isScrolled.set(false)
     }

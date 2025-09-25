@@ -3,11 +3,17 @@ import { ErrorComponent } from './features/error/error.component'
 import { HomeComponent } from './features/home/home.component'
 import { MaintenanceComponent } from './features/maintenance/maintenance.component'
 import { MaintenanceGuard } from './core/guards/maintenance/maintenance.guard'
+import { ChecklistDetailsComponent } from './features/checklistDetails/checklist-details.component'
 
 export const routes: Routes = [
     {
         path: '',
         component: HomeComponent,
+        canActivate: [MaintenanceGuard],
+    },
+    {
+        path: ':id',
+        component: ChecklistDetailsComponent,
         canActivate: [MaintenanceGuard],
     },
     {
