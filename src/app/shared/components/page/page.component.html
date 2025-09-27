@@ -1,38 +1,38 @@
 <div>
     <div class="flex flex-col" [class.appear]="isAnimated">
         <div class="page-header">
-            <div class="flex items-center gap-5">
-                <button
-                    *ngIf="showBackButton"
-                    (click)="goBack()"
-                    class="action"
-                    name="atras">
-                    <fa-icon [icon]="faArrowLeft"></fa-icon>
-                </button>
-                <ng-container *ngIf="editableTitle; else viewTitle">
-                    <ng-container
-                        *ngTemplateOutlet="editableTitle"></ng-container>
-                </ng-container>
+            <button
+                *ngIf="showBackButton"
+                (click)="goBack()"
+                class="action"
+                name="atras">
+                <fa-icon [icon]="faArrowLeft"></fa-icon>
+            </button>
+            <ng-container *ngIf="editableTitle; else viewTitle">
+                <ng-container *ngTemplateOutlet="editableTitle"></ng-container>
+            </ng-container>
 
-                <ng-template #viewTitle>
-                    <h2>{{ title }}</h2>
-                </ng-template>
+            <ng-template #viewTitle>
+                <h2>{{ title }}</h2>
+            </ng-template>
 
-                <ng-template #editableTitle>
-                    <input
-                        #titleInput
-                        class="!text-3xl !font-bold poppins"
-                        [value]="title"
-                        (input)="editTitleFunction.emit(titleInput.value)" />
-                </ng-template>
-            </div>
+            <ng-template #editableTitle>
+                <input
+                    #titleInput
+                    class="!text-3xl !font-bold poppins"
+                    [value]="title"
+                    (input)="editTitleFunction.emit(titleInput.value)" />
+            </ng-template>
+            <app-actions [actions]="actionList()"> </app-actions>
         </div>
     </div>
     <div class="px-5 py-3 h-full">
         <ng-content></ng-content>
     </div>
     <button
-        (click)="addFunction.emit()"
+        *ngIf="addOptions"
+        (click)="addOptions.clicked?.()"
+        name="agregar"
         class="submit button icon-button fab primary min-xs:!hidden">
         <fa-icon [icon]="faAdd"></fa-icon>
     </button>

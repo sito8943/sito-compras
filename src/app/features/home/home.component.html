@@ -1,25 +1,13 @@
 <main>
     <app-page
-        title="Home"
+        title="Inicio"
         [isLoading]="false"
         [isAnimated]="true"
-        [showBackButton]="false"
-        (addFunction)="addList()">
-        <ul
-            class="appear gap-5 flex flex-col"
-            *ngIf="lists().length > 0; else noLists">
+        [addOptions]="addAction"
+        [showBackButton]="false">
+        <ul *ngIf="lists().length > 0; else noLists">
             <li *ngFor="let list of lists(); let i = index">
-                <h3>
-                    <a class="!text-2xl" [routerLink]="['/', list.id]">{{
-                        list.title
-                    }}</a>
-                </h3>
-                <ul>
-                    <li *ngFor="let producto of list.items">
-                        {{ producto.count }} x {{ producto.name }} -
-                        {{ producto.price | currency }}
-                    </li>
-                </ul>
+                <h3>{{ list.title }}</h3>
             </li>
         </ul>
 
