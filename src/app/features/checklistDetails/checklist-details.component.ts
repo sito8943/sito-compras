@@ -1,11 +1,18 @@
 import { Component, OnInit, signal } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { PageComponent } from '../../shared/components/page/page.component'
 import { ActivatedRoute } from '@angular/router'
-import { ProductsComponent } from '../../shared/components/products/products.component'
+
+// models
 import { Product } from '../../core/models/Product'
+
+// services
 import { ProductStoreService } from '../../core/services/product-store.service'
 import { CheckListStoreService } from '../../core/services/checklist-store.service'
+
+// components
+import { PageComponent } from '../../shared/components/page/page.component'
+import { ProductsComponent } from '../../shared/components/products/products.component'
+import { Action } from '../../core/types/Action'
 
 @Component({
     selector: 'app-checklist-details',
@@ -29,8 +36,6 @@ export class ChecklistDetailsComponent implements OnInit {
         const currentId = this.route.snapshot.paramMap.get('id')
         this.id.set(Number(currentId)!)
 
-        console.log(currentId, typeof currentId)
-
         if (currentId) {
             this.listTitle.set(
                 this.checklistStore
@@ -50,6 +55,8 @@ export class ChecklistDetailsComponent implements OnInit {
 
     addProduct() {
         if (!this.id()) return
+
+        const now = new Date()
         const newProduct: Product = {
             id: Date.now(),
             checklistId: this.id() ?? 0,
@@ -57,12 +64,24 @@ export class ChecklistDetailsComponent implements OnInit {
             price: 0,
             count: 1,
             description: '',
+            createdAt: now.toISOString(),
+            updatedAt: now.toISOString(),
+            deleted: false,
         }
         this.productStore.addProduct(newProduct)
+        this.products.set(
+            this.productStore.getProductsByListId(Number(this.id() ?? 0))
+        )
     }
 
     removeProduct(productId: number) {
         if (!this.id()) return
         this.productStore.removeProduct(productId)
+    }
+
+    addAction: Partial<Action<Product>> = {
+        id: 'add',
+        tooltip: 'Añadir Producto',
+        clicked: () => this.addProduct(),
     }
 }

@@ -1,12 +1,12 @@
 <main>
     <app-page
         title="{{ listTitle() }}"
+        [addOptions]="addAction"
         [isLoading]="false"
         [isAnimated]="true"
         [showBackButton]="true"
         [editableTitle]="true"
-        (editTitleFunction)="editTitle($event)"
-        (addFunction)="addProduct()">
+        (editTitleFunction)="editTitle($event)">
         <app-products
             [products]="products()"
             (add)="addProduct()"

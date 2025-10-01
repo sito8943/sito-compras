@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common'
 // icons
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { Product } from '../../../core/models/Product'
+import { faClose } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
     selector: 'app-products',
@@ -16,4 +17,6 @@ export class ProductsComponent {
     @Input() products: Product[] = []
     @Output() add = new EventEmitter<void>()
     @Output() remove = new EventEmitter<number>()
+
+    faClose = faClose
 }

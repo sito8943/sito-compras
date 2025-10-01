@@ -19,7 +19,11 @@ p {
 }
 
 .icon-button {
-    @apply bg-base hover:bg-base-light w-7 h-7 rounded-full flex items-center justify-center;
+    @apply bg-base hover:bg-base-light w-7 h-7 min-w-7 min-h-7 rounded-full flex items-center justify-center;
+}
+
+.icon-button.error {
+    @apply text-bg-error bg-error hover:text-error hover:bg-bg-error;
 }
 
 .fab {

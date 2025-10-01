@@ -37,7 +37,6 @@ export class HomeComponent implements OnInit {
             deleted: false,
         }
         this.checklistStore.addList(newList)
-        console.log(this.checklistStore.checklist())
         this.lists.set(this.checklistStore.checklist())
     }
 
