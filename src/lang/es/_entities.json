@@ -1,0 +1,118 @@
+{
+  "base": {
+    "name": {
+      "label": "Nombre",
+      "required": "El nombre es requerido"
+    },
+    "description": {
+      "label": "Descripción",
+      "empty": "Sin descripción",
+      "placeholder": "Alguna descripción"
+    },
+    "id": {
+      "label": "Id"
+    },
+    "lockedBy": {
+      "label": ""
+    },
+    "deleted": {
+      "label": "Eliminado",
+      "filter": "Mostrar borrados"
+    },
+    "updatedAt": {
+      "label": "Última actualización"
+    },
+    "createdAt": {
+      "label": "Fecha de creación"
+    }
+  },
+  "user": {
+    "email": {
+      "label": "Correo electrónico",
+      "placeholder": "Ej: email@provider.com",
+      "unique": "Ya existe un usuario con ese correo electrónico",
+      "required": "El correo electrónico es requerido",
+      "notFound": "Usuario no encontrado"
+    },
+    "password": {
+      "label": "Contraseña",
+      "placeholder": "Ej: ********",
+      "required": "La contraseña es requerida",
+      "wrongPassword": "Contraseña incorrecta"
+    },
+    "rPassword": {
+      "label": "Confirmar contraseña",
+      "placeholder": "Ej: ********"
+    }
+  },
+  "checklist": {
+    "name": {
+      "unique": "Ya existe un listado con ese nombre",
+      "placeholder": "Ej: Productos de limpieza"
+    },
+    "description": {
+      "placeholder": "Ej: Listado para la compra semanal de productos de limpieza"
+    },
+    "completed": {
+      "label": "Completado"
+    },
+    "products": {
+      "label": "Productos",
+      "placeholder": "Selecciona productos para el listado"
+    }
+  },
+  "products": {
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Ej: Acondicionador",
+      "required": "El nombre es requerido"
+    },
+    "description": {
+      "label": "Descripción",
+      "placeholder": "Ej: Acondicionador para cabello seco"
+    },
+    "category": {
+      "label": "Categoria",
+      "placeholder": "Selecciona una categoria",
+      "required": "La categoria es requerida"
+    },
+    "checklist": {
+      "label": "Listado",
+      "placeholder": "Selecciona un listado"
+    },
+    "count": {
+      "label": "Cantidad",
+      "placeholder": "Ej: 12",
+      "required": "La cantidad es requerido",
+      "min": "La cantidad no puede ser menor que 0"
+    },
+    "price": {
+      "label": "Precio",
+      "placeholder": "Ej: 100"
+    }
+  },
+  "productCategory": {
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Ej: Alimentos",
+      "required": "El nombre es requerido"
+    },
+    "description": {
+      "label": "Descripción",
+      "placeholder": "Ej: Categoria de alimentos perecederos"
+    }
+  },
+  "currency": {
+    "name": {
+      "unique": "Ya existe una currency con ese nombre",
+      "placeholder": "Ej: CUP"
+    },
+    "symbol": {
+      "required": "El símbolo es requerido",
+      "label": "Símbolo",
+      "placeholder": "Ej: $"
+    }
+  },
+  "userDashboardCard": {}
+}
+

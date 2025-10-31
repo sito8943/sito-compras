@@ -1,2 +1,3 @@
-export * from './models'
+import { Manager } from './api'
 
+export { Manager }

@@ -1,0 +1,24 @@
+import type { UseQueryResult } from '@tanstack/react-query'
+
+// @sito/dashboard-app
+import type {
+  BaseEntityDto,
+  BaseFilterDto,
+  QueryParam,
+  QueryResult,
+} from '@sito/dashboard-app'
+
+export type UseFetchPropsType<TRow, TFilterDto = BaseFilterDto> = {
+  filters?: TFilterDto
+  query?: QueryParam<TRow>
+}
+
+export type UseFetchByIdPropsType = {
+  id: number
+}
+
+export interface ApiQueryResult<TResponseDto extends BaseEntityDto>
+  extends Omit<UseQueryResult<QueryResult<TResponseDto>>, 'setTotal'> {
+  setTotal: (total: number) => void
+}
+

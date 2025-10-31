@@ -1,10 +1,24 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import ReactDOM from "react-dom/client";
+import "react-tooltip/dist/react-tooltip.css";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+// app
+import App from "./App";
+
+// fonts
+import "@fontsource/poppins";
+import "@fontsource/roboto";
+
+// styles
+import "./index.css";
+
+// providers
+import { SitoCompraProvider } from "providers";
+
+// i18
+import "./i18";
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <SitoCompraProvider>
     <App />
-  </StrictMode>,
-)
+  </SitoCompraProvider>
+);
