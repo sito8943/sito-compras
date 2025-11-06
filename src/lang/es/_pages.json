@@ -2,8 +2,8 @@
   "pages": {
     "home": "Inicio",
     "accounts": "Cuentas",
-    "transactions": "Transacciones",
-    "transactionCategories": "Categorías",
+    "products": "Transacciones",
+    "productCategories": "Categorías",
     "currencies": "Monedas",
     "about": "Acerca de Sito Compras",
     "terms-and-conditions": "Términos y Condiciones",
@@ -29,8 +29,8 @@
     "appName": "Sito Compras",
     "welcome": "Bienvenido {{user}}",
     "dashboard": {
-      "transactionTypeResume": {
-        "title": "{{transactionType}} por rango",
+      "productTypeResume": {
+        "title": "{{productType}} por rango",
         "placeholder": "Escribe un título"
       },
       "addCard": {

@@ -1,4 +1,10 @@
-import { Outlet, useNavigate, useLocation, Link, To } from 'react-router-dom'
+import {
+  Outlet,
+  useNavigate,
+  useLocation,
+  Link,
+  type To,
+} from 'react-router-dom'
 import { Tooltip } from 'react-tooltip'
 import { ErrorBoundary } from 'react-error-boundary'
 import { useEffect, useState } from 'react'
@@ -26,13 +32,7 @@ import Footer from './Footer'
 // config
 import { config } from '../../config'
 
-const steps = [
-  'welcome',
-  'currencies',
-  'accounts',
-  'transactions',
-  'get_started',
-]
+const steps = ['welcome', 'currencies', 'accounts', 'products', 'get_started']
 
 export function View() {
   const { account, isInGuestMode } = useAuth()

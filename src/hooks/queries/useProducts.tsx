@@ -19,7 +19,7 @@ import {
   CommonProductDto,
   FilterProductDto,
   Tables,
-} from 'lib'
+} from 'lib/models'
 
 export const ProductsQueryKeys = {
   all: () => ({

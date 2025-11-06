@@ -2,8 +2,8 @@
   "pages": {
     "home": "Home",
     "accounts": "Accounts",
-    "transactions": "Transactions",
-    "transactionCategories": "Categories",
+    "products": "Products",
+    "productCategories": "Categories",
     "currencies": "Currencies",
     "about": "About Sito Wallet",
     "termsAndConditions": "Terms and Conditions",
@@ -29,8 +29,8 @@
     "appName": "Sito Wallet",
     "welcome": "Welcome {{user}}",
     "dashboard": {
-      "transactionTypeResume": {
-        "title": "{{transactionType}} per range",
+      "productTypeResume": {
+        "title": "{{productType}} per range",
         "placeholder": "Type the title"
       },
       "addCard": {
@@ -98,8 +98,8 @@
       "title": "All Your Accounts in One Place",
       "body": "Record bank accounts, cash, or cryptocurrencies and get a complete view of your money."
     },
-    "transactions": {
-      "title": "Full Control of Your Transactions",
+    "products": {
+      "title": "Full Control of Your Products",
       "body": "Log income and expenses in seconds, and categorize them to know exactly where your money goes."
     },
     "get_started": {
@@ -135,13 +135,13 @@
     "empty": "You don’t have any bank accounts. Add one to get started.",
     "add": "Add an account",
     "actions": {
-      "viewTransactions": { "text": "View transactions" },
+      "viewProducts": { "text": "View products" },
       "sync": {
         "text": "Sync balance",
         "successMessage": "Synced successful"
       },
-      "addTransaction": {
-        "text": "Add transaction",
+      "addProduct": {
+        "text": "Add product",
         "successMessage": "Saved successful"
       }
     },
@@ -151,17 +151,17 @@
       "editAria": "Click to edit account"
     }
   },
-  "transactions": {
-    "title": "Transactions",
-    "empty": "No transactions to load",
-    "add": "Add a transaction",
+  "products": {
+    "title": "Products",
+    "empty": "No products to load",
+    "add": "Add a product",
     "forms": {
-      "add": "New transaction",
-      "edit": "Edit transaction",
-      "editAria": "Click to edit transaction"
+      "add": "New product",
+      "edit": "Edit product",
+      "editAria": "Click to edit product"
     }
   },
-  "transactionCategories": {
+  "productCategories": {
     "title": "Categories",
     "empty": "You don't have any categories. Add one to get started.",
     "add": "Add a category",
@@ -210,20 +210,20 @@
           ]
         },
         {
-          "title": "Transaction Categories",
+          "title": "Product Categories",
           "items": [
             "Create categories to organize your income and expenses (e.g., Food, Freelance Work).",
-            "Edit names and descriptions to match your way of classifying transactions.",
+            "Edit names and descriptions to match your way of classifying products.",
             "Delete obsolete or unnecessary categories.",
             "List all categories to have an organized view of your finances."
           ]
         },
         {
-          "title": "Transactions",
+          "title": "Products",
           "items": [
             "Record income and expenses with all details (date, amount, category, account).",
-            "Edit transactions if you made a mistake or want to update information.",
-            "Delete incorrect or duplicate transactions.",
+            "Edit products if you made a mistake or want to update information.",
+            "Delete incorrect or duplicate products.",
             "Check your history to analyze how and where your money is moving."
           ]
         }
@@ -236,11 +236,11 @@
     "sections": [
       {
         "title": "1. About Sito Wallet",
-        "body": "<p><strong>Sito Wallet</strong> is a free application with the goal of helping you manage and organize your finances (digital and physical) in one place. The app provides tools to manage currencies, accounts, transaction categories, and transactions. <strong>Sito Wallet</strong> is offered <strong>completely free of charge</strong>.</p>"
+        "body": "<p><strong>Sito Wallet</strong> is a free application with the goal of helping you manage and organize your finances (digital and physical) in one place. The app provides tools to manage currencies, accounts, product categories, and products. <strong>Sito Wallet</strong> is offered <strong>completely free of charge</strong>.</p>"
       },
       {
         "title": "2. Use of the Application",
-        "body": "<ul><li>You agree to use <strong>Sito Wallet</strong> only for lawful purposes and in accordance with these Terms.</li><li>You are responsible for the accuracy of the information you add (accounts, transactions, balances, etc.).</li><li>The app is intended for <strong>personal finance management</strong> only and must not be used for illegal or fraudulent activities.</li></ul>"
+        "body": "<ul><li>You agree to use <strong>Sito Wallet</strong> only for lawful purposes and in accordance with these Terms.</li><li>You are responsible for the accuracy of the information you add (accounts, products, balances, etc.).</li><li>The app is intended for <strong>personal finance management</strong> only and must not be used for illegal or fraudulent activities.</li></ul>"
       },
       {
         "title": "3. Data and Privacy",

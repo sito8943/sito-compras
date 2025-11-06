@@ -71,7 +71,7 @@
       "greaterThan0": "Insufficient balance"
     }
   },
-  "transaction": {
+  "product": {
     "amount": {
       "label": "Amount",
       "placeholder": "Ex: 100.00",
@@ -95,10 +95,10 @@
       "required": "Date is required"
     }
   },
-  "transactionCategory": {
+  "productCategory": {
     "name": {
       "label": "Name",
-      "init": "Initial Transaction",
+      "init": "Initial Product",
       "placeholder": "Ex: Food"
     },
     "description": {

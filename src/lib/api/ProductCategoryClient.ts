@@ -4,13 +4,13 @@ import { BaseClient } from '@sito/dashboard-app'
 import { Tables } from './types'
 
 // types
-import {
+import type {
   CommonProductCategoryDto,
   ProductCategoryDto,
   UpdateProductCategoryDto,
   FilterProductCategoryDto,
   AddProductCategoryDto,
-} from 'lib'
+} from 'lib/models'
 
 // config
 import { config } from '../../config'

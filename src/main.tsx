@@ -12,13 +12,13 @@ import "@fontsource/roboto";
 import "./index.css";
 
 // providers
-import { SitoCompraProvider } from "providers";
+import { SitoComprasProvider } from "providers";
 
 // i18
 import "./i18";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <SitoCompraProvider>
+  <SitoComprasProvider>
     <App />
-  </SitoCompraProvider>
+  </SitoComprasProvider>
 );

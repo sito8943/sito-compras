@@ -1,5 +1,5 @@
-import type { BaseDto } from '@sito/dashboard'
+import type { BaseEntityDto } from '@sito/dashboard-app'
 import type { AddProductDto } from './AddProductDto'
 
-export interface ProductDto extends BaseDto, AddProductDto {}
+export interface ProductDto extends BaseEntityDto, AddProductDto {}
 

@@ -1,8 +1,8 @@
-import type { BaseDto } from '@sito/dashboard'
+import type { BaseEntityDto } from '@sito/dashboard-app'
 import type { CommonProductDto } from '../product'
+import type { AddChecklistDto } from './AddChecklistDto'
 
-export interface ChecklistDto extends BaseDto {
-  name: string
+export interface ChecklistDto extends BaseEntityDto, AddChecklistDto {
   completed: boolean
   products: CommonProductDto[]
 }
