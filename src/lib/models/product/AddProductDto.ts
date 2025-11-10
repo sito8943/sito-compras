@@ -1,7 +1,9 @@
 export type AddProductDto = {
-    name: string
-    price: number
-    count: number
-    checklistId: number
-    description: string
+  name: string
+  price: number
+  count: number
+  checklistId: number
+  userId: number
+  description: string
 }
+
