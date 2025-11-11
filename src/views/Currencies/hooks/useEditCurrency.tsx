@@ -1,27 +1,27 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next'
 
 // @sito/dashboard-app
-import { useFormDialog } from "@sito/dashboard-app";
+import { useFormDialog } from '@sito/dashboard-app'
 
 // providers
-import { useManager } from "providers";
+import { useManager } from 'providers'
 
 // hooks
-import { CurrenciesQueryKeys } from "hooks";
+import { CurrenciesQueryKeys } from 'hooks'
 
 // utils
-import { dtoToForm, emptyCurrency, formToDto } from "../utils";
+import { dtoToForm, emptyCurrency, formToDto } from '../utils'
 
 // lib
-import { UpdateCurrencyDto, CurrencyDto } from "lib";
+import type { UpdateCurrencyDto, CurrencyDto } from 'lib/models'
 
 // types
-import { CurrencyFormType } from "../types";
+import type { CurrencyFormType } from '../types'
 
 export function useEditCurrency() {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
-  const manager = useManager();
+  const manager = useManager()
 
   return useFormDialog<
     CurrencyDto,
@@ -32,10 +32,11 @@ export function useEditCurrency() {
     formToDto,
     dtoToForm,
     defaultValues: emptyCurrency,
-    getFunction: (id) => manager.Currencies.getById(id),
-    mutationFn: (data) => manager.Currencies.update(data),
-    onSuccessMessage: t("_pages:common.actions.add.successMessage"),
-    title: t("_pages:currencies.forms.edit"),
+    getFunction: id => manager.Currencies.getById(id),
+    mutationFn: data => manager.Currencies.update(data),
+    onSuccessMessage: t('_pages:common.actions.add.successMessage'),
+    title: t('_pages:currencies.forms.edit'),
     ...CurrenciesQueryKeys.all(),
-  });
+  })
 }
+

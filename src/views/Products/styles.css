@@ -1,0 +1,4 @@
+.checklist-tabs {
+  width: calc(100vw - 40px) !important;
+  overflow: auto;
+}

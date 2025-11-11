@@ -1,7 +1,7 @@
 {
   "pages": {
     "home": "Home",
-    "accounts": "Accounts",
+    "checklists": "Checklists",
     "products": "Products",
     "productCategories": "Categories",
     "currencies": "Currencies",
@@ -94,9 +94,9 @@
       "title": "Manage All Your Currencies",
       "body": "Add and track any currency to keep control of your finances anywhere in the world."
     },
-    "accounts": {
-      "title": "All Your Accounts in One Place",
-      "body": "Record bank accounts, cash, or cryptocurrencies and get a complete view of your money."
+    "checklists": {
+      "title": "All Your Checklists in One Place",
+      "body": "Record bank checklists, cash, or cryptocurrencies and get a complete view of your money."
     },
     "products": {
       "title": "Full Control of Your Products",
@@ -104,18 +104,18 @@
     },
     "get_started": {
       "title": "You're Ready to Take Control",
-      "body": "Add your first account now and start your journey to healthier finances today."
+      "body": "Add your first checklist now and start your journey to healthier finances today."
     }
   },
   "auth": {
     "signIn": {
       "title": "Sign In",
-      "accountRecovery": {
-        "question": "Trouble accessing your account?",
+      "checklistRecovery": {
+        "question": "Trouble accessing your checklist?",
         "link": "Recover it here"
       },
       "toRegister": {
-        "question": "Don't have an account yet?",
+        "question": "Don't have an checklist yet?",
         "link": "Create one now"
       }
     },
@@ -130,10 +130,10 @@
   "signOut": {
     "title": "Sign out"
   },
-  "accounts": {
-    "title": "Accounts",
-    "empty": "You don’t have any bank accounts. Add one to get started.",
-    "add": "Add an account",
+  "checklists": {
+    "title": "Checklists",
+    "empty": "You don’t have any bank checklists. Add one to get started.",
+    "add": "Add an checklist",
     "actions": {
       "viewProducts": { "text": "View products" },
       "sync": {
@@ -146,9 +146,9 @@
       }
     },
     "forms": {
-      "add": "New account",
-      "edit": "Edit account",
-      "editAria": "Click to edit account"
+      "add": "New checklist",
+      "edit": "Edit checklist",
+      "editAria": "Click to edit checklist"
     }
   },
   "products": {
@@ -186,7 +186,7 @@
   },
   "about": {
     "title": "About Sito Wallet",
-    "body": "<p>At <strong>Sito Wallet</strong>, we believe managing your money should be easy and stress-free. That's why we offer an app where you can manage all your accounts, both digital and physical, in one place.</p><p>Created with care by <2>sito8943</2>, our mission is to help you understand and organize your finances clearly, safely, and without complications.</p><p>And the best part: <strong>it's completely free</strong>. Because we believe having control over your money shouldn't cost you anything.</p>",
+    "body": "<p>At <strong>Sito Wallet</strong>, we believe managing your money should be easy and stress-free. That's why we offer an app where you can manage all your checklists, both digital and physical, in one place.</p><p>Created with care by <2>sito8943</2>, our mission is to help you understand and organize your finances clearly, safely, and without complications.</p><p>And the best part: <strong>it's completely free</strong>. Because we believe having control over your money shouldn't cost you anything.</p>",
     "howTo": {
       "title": "What you can do",
       "body": "With Sito Wallet, you have everything you need to fully control your finances, both digital and physical, thanks to its simple and powerful tools.",
@@ -201,12 +201,12 @@
           ]
         },
         {
-          "title": "Accounts",
+          "title": "Checklists",
           "items": [
-            "Add physical accounts (cash, banks) or digital accounts (PayPal, cryptocurrencies).",
-            "Modify details such as initial balance, name, or account type.",
-            "Delete inactive or unused accounts.",
-            "View and organize all your accounts clearly."
+            "Add physical checklists (cash, banks) or digital checklists (PayPal, cryptocurrencies).",
+            "Modify details such as initial balance, name, or checklist type.",
+            "Delete inactive or unused checklists.",
+            "View and organize all your checklists clearly."
           ]
         },
         {
@@ -221,7 +221,7 @@
         {
           "title": "Products",
           "items": [
-            "Record income and expenses with all details (date, amount, category, account).",
+            "Record income and expenses with all details (date, amount, category, checklist).",
             "Edit products if you made a mistake or want to update information.",
             "Delete incorrect or duplicate products.",
             "Check your history to analyze how and where your money is moving."
@@ -236,11 +236,11 @@
     "sections": [
       {
         "title": "1. About Sito Wallet",
-        "body": "<p><strong>Sito Wallet</strong> is a free application with the goal of helping you manage and organize your finances (digital and physical) in one place. The app provides tools to manage currencies, accounts, product categories, and products. <strong>Sito Wallet</strong> is offered <strong>completely free of charge</strong>.</p>"
+        "body": "<p><strong>Sito Wallet</strong> is a free application with the goal of helping you manage and organize your finances (digital and physical) in one place. The app provides tools to manage currencies, checklists, product categories, and products. <strong>Sito Wallet</strong> is offered <strong>completely free of charge</strong>.</p>"
       },
       {
         "title": "2. Use of the Application",
-        "body": "<ul><li>You agree to use <strong>Sito Wallet</strong> only for lawful purposes and in accordance with these Terms.</li><li>You are responsible for the accuracy of the information you add (accounts, products, balances, etc.).</li><li>The app is intended for <strong>personal finance management</strong> only and must not be used for illegal or fraudulent activities.</li></ul>"
+        "body": "<ul><li>You agree to use <strong>Sito Wallet</strong> only for lawful purposes and in accordance with these Terms.</li><li>You are responsible for the accuracy of the information you add (checklists, products, balances, etc.).</li><li>The app is intended for <strong>personal finance management</strong> only and must not be used for illegal or fraudulent activities.</li></ul>"
       },
       {
         "title": "3. Data and Privacy",

@@ -1,19 +1,19 @@
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation, Trans } from 'react-i18next'
 
 // types
-import { TermsSection } from "./types";
+import type { TermsSection } from './types'
 
 export const TermsAndConditions = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
-  const sections = t("_pages:termsAndConditions.sections", {
+  const sections = t('_pages:termsAndConditions.sections', {
     returnObjects: true,
-  }) as TermsSection[];
+  }) as TermsSection[]
 
   return (
     <main className="py-10 px-5 gap-5">
       <h2 className="text-4xl max-xs:text-2xl">
-        {t("_pages:termsAndConditions.title")}
+        {t('_pages:termsAndConditions.title')}
       </h2>
       <Trans
         i18nKey="_pages:termsAndConditions.body"
@@ -39,5 +39,6 @@ export const TermsAndConditions = () => {
         ))}
       </section>
     </main>
-  );
-};
+  )
+}
+

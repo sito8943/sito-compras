@@ -1,37 +1,41 @@
-import { FieldValues } from "react-hook-form";
+import type { FieldValues } from 'react-hook-form'
 
 // @sito/dashboard
-import { Action } from "@sito/dashboard";
-import { ValidationError, FormDialogPropsType } from "@sito/dashboard-app";
+import type { Action } from '@sito/dashboard'
+import type { ValidationError, FormDialogPropsType } from '@sito/dashboard-app'
 
 // lib
-import { AccountDto } from "lib";
+import type { ChecklistDto } from 'lib/models'
 
-export * from "./actions";
+export * from './actions'
 
-export interface AccountCardPropsType extends AccountDto {
-  actions: Action<AccountDto>[];
-  onClick: (id: number) => void;
-  deleted: boolean;
+export interface ChecklistCardPropsType extends ChecklistDto {
+  actions: Action<ChecklistDto>[]
+  onClick: (id: number) => void
+  deleted: boolean
 }
 
-export interface AccountFormType
-  extends Omit<AccountDto, "deleted" | "createdAt" | "updatedAt" | "user">,
+export interface ChecklistFormType
+  extends Omit<
+      ChecklistDto,
+      'deleted' | 'createdAt' | 'updatedAt' | 'user' | 'products' | 'completed'
+    >,
     FieldValues {
-  userId: number;
+  userId: number
 }
 
-export type AccountFormPropsType = FormDialogPropsType<
-  AccountFormType,
+export type ChecklistFormPropsType = FormDialogPropsType<
+  ChecklistFormType,
   ValidationError
->;
+>
 
-export type AddAccountDialogPropsType = FormDialogPropsType<
-  AccountFormType,
+export type AddChecklistDialogPropsType = FormDialogPropsType<
+  ChecklistFormType,
   ValidationError
->;
+>
 
-export type EditAccountDialogPropsType = FormDialogPropsType<
-  AccountFormType,
+export type EditChecklistDialogPropsType = FormDialogPropsType<
+  ChecklistFormType,
   ValidationError
->;
+>
+

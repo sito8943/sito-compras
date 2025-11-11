@@ -45,10 +45,10 @@
       "placeholder": "Ex: ********"
     }
   },
-  "account": {
+  "checklist": {
     "name": {
       "placeholder": "Ex: Personal",
-      "unique": "There is a account with that name already"
+      "unique": "There is a checklist with that name already"
     },
     "type": {
       "label": "Type",
@@ -85,10 +85,10 @@
       "placeholder": "Select an category",
       "required": "Category is required"
     },
-    "account": {
-      "label": "Account",
-      "placeholder": "Select an account",
-      "required": "Account is required"
+    "checklist": {
+      "label": "Checklist",
+      "placeholder": "Select an checklist",
+      "required": "Checklist is required"
     },
     "date": {
       "label": "Date",

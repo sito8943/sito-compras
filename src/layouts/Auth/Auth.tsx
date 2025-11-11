@@ -1,20 +1,20 @@
-import { useEffect } from "react";
-import { ErrorBoundary } from "react-error-boundary";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useEffect } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 // @sito/dashboard-app
-import { Notification, Error } from "@sito/dashboard-app";
+import { Notification, Error } from '@sito/dashboard-app'
 
 // providers
-import { useAuth } from "@sito/dashboard-app";
+import { useAuth } from '@sito/dashboard-app'
 
 export const Auth = () => {
-  const { account } = useAuth();
-  const navigate = useNavigate();
+  const { account } = useAuth()
+  const navigate = useNavigate()
 
   useEffect(() => {
-    if (account.email) navigate("/");
-  }, [account, navigate]);
+    if (account.email) navigate('/')
+  }, [account, navigate])
 
   return (
     <>
@@ -23,5 +23,6 @@ export const Auth = () => {
       </ErrorBoundary>
       <Notification />
     </>
-  );
-};
+  )
+}
+

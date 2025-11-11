@@ -1,32 +1,32 @@
-import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import { Controller } from "react-hook-form";
+import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Controller } from 'react-hook-form'
 
 // @sito/dashboard
-import { TextInput } from "@sito/dashboard";
-import { FormDialog, ParagraphInput } from "@sito/dashboard-app";
+import { TextInput } from '@sito/dashboard'
+import { FormDialog, ParagraphInput } from '@sito/dashboard-app'
 
 // types
-import {
+import type {
   AddCurrencyDialogPropsType,
   CurrencyFormPropsType,
   EditCurrencyDialogPropsType,
-} from "../types";
+} from '../types'
 
 // lib
-import { Tables } from "lib";
+import { Tables } from 'lib/api'
 
 // providers
-import { useAuth } from "@sito/dashboard-app";
+import { useAuth } from '@sito/dashboard-app'
 
 export function CurrencyForm(props: CurrencyFormPropsType) {
-  const { control, setValue, isLoading, open } = props;
-  const { t } = useTranslation();
-  const { account } = useAuth();
+  const { control, setValue, isLoading, open } = props
+  const { t } = useTranslation()
+  const { account } = useAuth()
 
   useEffect(() => {
-    if (account && setValue) setValue("userId", account?.id ?? 0);
-  }, [account, setValue, open]);
+    if (account && setValue) setValue('userId', account?.id ?? 0)
+  }, [account, setValue, open])
 
   return (
     <>
@@ -43,7 +43,7 @@ export function CurrencyForm(props: CurrencyFormPropsType) {
       <Controller
         control={control}
         rules={{
-          required: `${t("_entities:base.name.required")}`,
+          required: `${t('_entities:base.name.required')}`,
         }}
         name="name"
         disabled={isLoading}
@@ -51,12 +51,12 @@ export function CurrencyForm(props: CurrencyFormPropsType) {
           <TextInput
             required
             maxLength={20}
-            value={value ?? ""}
+            value={value ?? ''}
             autoComplete={`${Tables.Currencies}-${t(
-              "_entities:base.name.label"
+              '_entities:base.name.label'
             )}`}
-            label={t("_entities:base.name.label")}
-            placeholder={t("_entities:currency.name.placeholder")}
+            label={t('_entities:base.name.label')}
+            placeholder={t('_entities:currency.name.placeholder')}
             {...rest}
           />
         )}
@@ -64,7 +64,7 @@ export function CurrencyForm(props: CurrencyFormPropsType) {
       <Controller
         control={control}
         rules={{
-          required: `${t("_entities:currency.symbol.required")}`,
+          required: `${t('_entities:currency.symbol.required')}`,
         }}
         name="symbol"
         disabled={isLoading}
@@ -72,12 +72,12 @@ export function CurrencyForm(props: CurrencyFormPropsType) {
           <TextInput
             required
             maxLength={20}
-            value={value ?? ""}
+            value={value ?? ''}
             autoComplete={`${Tables.Currencies}-${t(
-              "_entities:currency.symbol.label"
+              '_entities:currency.symbol.label'
             )}`}
-            label={t("_entities:currency.symbol.label")}
-            placeholder={t("_entities:currency.symbol.placeholder")}
+            label={t('_entities:currency.symbol.label')}
+            placeholder={t('_entities:currency.symbol.placeholder')}
             {...rest}
           />
         )}
@@ -89,28 +89,28 @@ export function CurrencyForm(props: CurrencyFormPropsType) {
         render={({ field: { value, ...rest } }) => (
           <ParagraphInput
             maxLength={60}
-            value={value ?? ""}
+            value={value ?? ''}
             autoComplete={`${Tables.Currencies}-${t(
-              "_entities:base.description.label"
+              '_entities:base.description.label'
             )}`}
-            label={t("_entities:base.description.label")}
-            placeholder={t("_entities:base.description.placeholder")}
+            label={t('_entities:base.description.label')}
+            placeholder={t('_entities:base.description.placeholder')}
             {...rest}
           />
         )}
       />
     </>
-  );
+  )
 }
 
 export function AddCurrencyDialog(props: AddCurrencyDialogPropsType) {
-  console.log(props.open);
+  console.log(props.open)
 
   return (
     <FormDialog {...props}>
       <CurrencyForm {...props} />
     </FormDialog>
-  );
+  )
 }
 
 export function EditCurrencyDialog(props: EditCurrencyDialogPropsType) {
@@ -118,5 +118,6 @@ export function EditCurrencyDialog(props: EditCurrencyDialogPropsType) {
     <FormDialog {...props}>
       <CurrencyForm {...props} />
     </FormDialog>
-  );
+  )
 }
+

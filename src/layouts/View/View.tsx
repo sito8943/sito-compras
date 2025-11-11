@@ -32,7 +32,7 @@ import Footer from './Footer'
 // config
 import { config } from '../../config'
 
-const steps = ['welcome', 'currencies', 'accounts', 'products', 'get_started']
+const steps = ['welcome', 'currencies', 'checklist', 'products', 'get_started']
 
 export function View() {
   const { account, isInGuestMode } = useAuth()

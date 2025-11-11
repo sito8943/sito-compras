@@ -1,0 +1,31 @@
+import type { ProductCategoryDto, UpdateProductCategoryDto } from 'lib/models'
+import type { ProductCategoryFormType } from '../types'
+
+export const formToDto = ({
+  id,
+  name,
+  description,
+  userId,
+}: ProductCategoryFormType): UpdateProductCategoryDto => {
+  return {
+    id,
+    name,
+    description,
+    userId: userId,
+  }
+}
+
+export const dtoToForm = (
+  dto: ProductCategoryDto
+): ProductCategoryFormType => ({
+  ...dto,
+  userId: dto.user?.id ?? 0,
+})
+
+export const emptyProductCategory: ProductCategoryFormType = {
+  id: 0,
+  name: '',
+  description: '',
+  userId: 0,
+}
+

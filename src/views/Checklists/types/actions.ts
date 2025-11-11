@@ -1,5 +1,6 @@
-export enum AccountActions {
-  ViewTransactions = "viewTransactions",
-  AddTransaction = "addTransaction",
-  SyncAccount = "syncAccount",
+export enum ChecklistActions {
+  ViewProducts = 'viewProducts',
+  AddProduct = 'addProduct',
+  SyncChecklist = 'syncChecklist',
 }
+

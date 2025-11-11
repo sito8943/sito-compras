@@ -1,3 +1,8 @@
-import type { ProductDto } from './ProductDto'
+// @sito/dashboard
+import type { DeleteDto } from '@sito/dashboard-app'
 
-export interface UpdateProductDto extends ProductDto {}
+// types
+import type { AddProductDto } from './AddProductDto'
+
+export interface UpdateProductDto extends DeleteDto, AddProductDto {}
+

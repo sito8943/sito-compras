@@ -10,12 +10,12 @@ import type { QueryResult } from '@sito/dashboard-app'
 import type { UseFetchPropsType } from './types.ts'
 
 // lib
-import {
+import type {
   ChecklistDto,
   CommonChecklistDto,
   FilterChecklistDto,
-  Tables,
-} from 'lib'
+} from 'lib/models'
+import { Tables } from 'lib/api'
 
 export const ChecklistsQueryKeys = {
   all: () => ({
@@ -35,17 +35,17 @@ export function useChecklistsList(
   const { filters = { deleted: false } } = props
 
   const manager = useManager()
-  const { checklist } = useAuth()
+  const { account } = useAuth()
   const { loadCache, updateCache } = useLocalCache()
 
   return useQuery({
     ...ChecklistsQueryKeys.list(filters),
-    enabled: !!checklist?.id,
+    enabled: !!account?.id,
     queryFn: async () => {
       try {
         const result = await manager.Checklists.get(undefined, {
           ...filters,
-          userId: checklist?.id,
+          userId: account?.id,
         })
 
         updateCache(Tables.Checklists, result.items)
@@ -66,17 +66,17 @@ export function useChecklistsList(
 
 export function useChecklistsCommon(): UseQueryResult<CommonChecklistDto[]> {
   const manager = useManager()
-  const { checklist } = useAuth()
+  const { account } = useAuth()
   const { loadCache, updateCache, inCache } = useLocalCache()
 
   return useQuery({
     ...ChecklistsQueryKeys.common(),
-    enabled: !!checklist?.id,
+    enabled: !!account?.id,
     queryFn: async () => {
       try {
         const result = await manager.Checklists.commonGet({
           deleted: false,
-          userId: checklist?.id,
+          userId: account?.id,
         })
         if (!inCache(Tables.Checklists)) updateCache(Tables.Checklists, result)
         return result

@@ -1,3 +1,8 @@
-import type { ChecklistDto } from './ChecklistDto'
+// @sito/dashboard
+import type { DeleteDto } from '@sito/dashboard-app'
 
-export interface UpdateChecklistDto extends ChecklistDto {}
+// types
+import type { AddChecklistDto } from './AddChecklistDto'
+
+export interface UpdateChecklistDto extends DeleteDto, AddChecklistDto {}
+

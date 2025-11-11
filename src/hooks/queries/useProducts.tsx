@@ -14,12 +14,8 @@ import type { QueryParam, QueryResult } from '@sito/dashboard-app'
 import type { UseFetchPropsType } from './types.ts'
 
 // lib
-import {
-  ProductDto,
-  CommonProductDto,
-  FilterProductDto,
-  Tables,
-} from 'lib/models'
+import type { ProductDto, CommonProductDto, FilterProductDto } from 'lib/models'
+import { Tables } from 'lib/api'
 
 export const ProductsQueryKeys = {
   all: () => ({
@@ -30,10 +26,6 @@ export const ProductsQueryKeys = {
   }),
   common: (filters: FilterProductDto) => ({
     queryKey: [...ProductsQueryKeys.all().queryKey, 'common', filters],
-  }),
-  typeResume: (filters: FilterProductDto) => ({
-    queryKey: [...ProductsQueryKeys.all().queryKey, 'typeResume', filters],
-    enabled: !!filters.type,
   }),
 }
 
@@ -84,7 +76,7 @@ export function useProductsList(
         const result = await manager.Products.get(parsedQueries, parsedFilters)
 
         updateCache(
-          `${Tables.Products}_${filters?.accountId ?? 0}`,
+          `${Tables.Products}_${filters?.checklistId ?? 0}`,
           result.items
         )
         return result
@@ -92,7 +84,7 @@ export function useProductsList(
         console.warn('API failed, loading products from cache', error)
 
         const cached = loadCache(
-          `${Tables.Products}_${filters?.accountId ?? 0}`
+          `${Tables.Products}_${filters?.checklistId ?? 0}`
         )
         if (!cached || !Array.isArray(cached))
           throw new Error('No cached products available')
@@ -125,9 +117,12 @@ export function useProductsCommon(): UseQueryResult<CommonProductDto[]> {
         const cached = loadCache(Tables.Products) as CommonProductDto[]
         if (!cached || !Array.isArray(cached))
           throw new Error('No cached products available')
-        return cached.map(({ id, updatedAt }) => ({
+        return cached.map(({ id, updatedAt, name, price, count }) => ({
           id,
           updatedAt,
+          name,
+          price,
+          count,
         }))
       }
     },

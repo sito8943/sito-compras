@@ -1,5 +1,5 @@
-import { useCallback, useMemo } from "react";
-import { useTranslation } from "react-i18next";
+import { useCallback, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 
 // @sito/dashboard-app
 import {
@@ -12,56 +12,57 @@ import {
   Empty,
   Error,
   ConfirmationDialog,
-} from "@sito/dashboard-app";
+} from '@sito/dashboard-app'
 
 // icons
-import { faAdd, faCoins } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAdd, faCoins } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // providers
-import { useManager } from "providers";
+import { useManager } from 'providers'
 
 // components
 import {
   AddCurrencyDialog,
   CurrencyCard,
   EditCurrencyDialog,
-} from "./components";
+} from './components'
 
 // hooks
-import { useCurrenciesList, CurrenciesQueryKeys } from "hooks";
-import { useAddCurrency, useEditCurrency } from "./hooks";
+import { useCurrenciesList, CurrenciesQueryKeys } from 'hooks'
+import { useAddCurrency, useEditCurrency } from './hooks'
 
 // types
-import { CurrencyDto, Tables } from "lib";
+import type { CurrencyDto } from 'lib/models'
+import { Tables } from 'lib/api'
 
 export function Currencies() {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
-  const manager = useManager();
+  const manager = useManager()
 
-  const { data, isLoading, error } = useCurrenciesList({});
+  const { data, isLoading, error } = useCurrenciesList({})
 
   // #region actions
 
   const deleteCurrency = useDeleteDialog({
-    mutationFn: (data) => manager.Currencies.softDelete(data),
+    mutationFn: data => manager.Currencies.softDelete(data),
     ...CurrenciesQueryKeys.all(),
-  });
+  })
 
   const restoreCurrency = useRestoreDialog({
-    mutationFn: (data) => manager.Currencies.restore(data),
+    mutationFn: data => manager.Currencies.restore(data),
     ...CurrenciesQueryKeys.all(),
-  });
+  })
 
-  const addCurrency = useAddCurrency();
+  const addCurrency = useAddCurrency()
 
-  const editCurrency = useEditCurrency();
+  const editCurrency = useEditCurrency()
 
   const exportCurrency = useExportActionMutate({
     entity: Tables.Currencies,
     mutationFn: () => manager.Currencies.export(),
-  });
+  })
 
   // #endregion
 
@@ -71,49 +72,48 @@ export function Currencies() {
       restoreCurrency.action(record),
     ],
     [deleteCurrency, restoreCurrency]
-  );
+  )
 
   const pageToolbar = useMemo(() => {
-    return [exportCurrency.action()];
-  }, [exportCurrency]);
+    return [exportCurrency.action()]
+  }, [exportCurrency])
 
   return (
     <Page
-      title={t("_pages:currencies.title")}
+      title={t('_pages:currencies.title')}
       isLoading={isLoading}
       actions={pageToolbar}
       addOptions={{
         onClick: () => addCurrency.openDialog(),
         disabled: isLoading,
-        tooltip: t("_pages:currencies.add"),
+        tooltip: t('_pages:currencies.add'),
       }}
-      queryKey={CurrenciesQueryKeys.all().queryKey}
-    >
+      queryKey={CurrenciesQueryKeys.all().queryKey}>
       {!error ? (
         <>
           <PrettyGrid
             data={data?.items}
             emptyComponent={
               <Empty
-                message={t("_pages:currencies.empty")}
+                message={t('_pages:currencies.empty')}
                 iconProps={{
                   icon: faCoins,
-                  className: "text-5xl max-md:text-3xl text-gray-400",
+                  className: 'text-5xl max-md:text-3xl text-gray-400',
                 }}
                 action={{
                   icon: <FontAwesomeIcon icon={faAdd} />,
                   id: GlobalActions.Add,
                   disabled: isLoading,
                   onClick: () => addCurrency.openDialog(),
-                  tooltip: t("_pages:currencies.add"),
+                  tooltip: t('_pages:currencies.add'),
                 }}
               />
             }
-            renderComponent={(account) => (
+            renderComponent={checklist => (
               <CurrencyCard
-                actions={getActions(account)}
+                actions={getActions(checklist)}
                 onClick={(id: number) => editCurrency.openDialog(id)}
-                {...account}
+                {...checklist}
               />
             )}
           />
@@ -127,5 +127,6 @@ export function Currencies() {
         <Error error={error} />
       )}
     </Page>
-  );
+  )
 }
+

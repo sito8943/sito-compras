@@ -1,46 +1,42 @@
-import { useQuery } from "@tanstack/react-query";
-import type { UseQueryResult } from "@tanstack/react-query";
+import { useQuery } from '@tanstack/react-query'
+import type { UseQueryResult } from '@tanstack/react-query'
 
 // providers
-import { useLocalCache, useManager } from "providers";
-import {  useAuth } from "@sito/dashboard-app"
-import type { QueryResult } from "@sito/dashboard-app";
+import { useLocalCache, useManager } from 'providers'
+import { useAuth } from '@sito/dashboard-app'
+import type { QueryResult } from '@sito/dashboard-app'
 
 // types
-import type { UseFetchPropsType } from "./types.ts";
+import type { UseFetchPropsType } from './types.ts'
 
 // lib
-import {
+import type {
   ProductCategoryDto,
   CommonProductCategoryDto,
   FilterProductCategoryDto,
-  Tables,
-} from "lib";
+} from 'lib/models'
+import { Tables } from 'lib/api'
 
 export const ProductCategoriesQueryKeys = {
   all: () => ({
-    queryKey: ["product-categories"],
+    queryKey: ['product-categories'],
   }),
   list: (filters: FilterProductCategoryDto) => ({
-    queryKey: [
-      ...ProductCategoriesQueryKeys.all().queryKey,
-      "list",
-      filters,
-    ],
+    queryKey: [...ProductCategoriesQueryKeys.all().queryKey, 'list', filters],
   }),
   common: () => ({
-    queryKey: [...ProductCategoriesQueryKeys.all().queryKey, "common"],
+    queryKey: [...ProductCategoriesQueryKeys.all().queryKey, 'common'],
   }),
-};
+}
 
 export function useProductCategoriesList(
   props: UseFetchPropsType<ProductCategoryDto, FilterProductCategoryDto>
 ): UseQueryResult<QueryResult<ProductCategoryDto>> {
-  const { filters = { deleted: false } } = props;
+  const { filters = { deleted: false } } = props
 
-  const manager = useManager();
-  const { account } = useAuth();
-  const { loadCache, updateCache, inCache } = useLocalCache();
+  const manager = useManager()
+  const { account } = useAuth()
+  const { loadCache, updateCache, inCache } = useLocalCache()
 
   return useQuery({
     ...ProductCategoriesQueryKeys.list(filters),
@@ -50,30 +46,30 @@ export function useProductCategoriesList(
         const result = await manager.ProductCategories.get(undefined, {
           ...filters,
           userId: account?.id,
-        });
+        })
         if (!inCache(Tables.ProductCategories))
-          updateCache(Tables.ProductCategories, result.items);
-        return result;
+          updateCache(Tables.ProductCategories, result.items)
+        return result
       } catch (error) {
-        console.warn("API failed, loading accounts from cache", error);
-        const cached = loadCache(Tables.ProductCategories);
+        console.warn('API failed, loading categories from cache', error)
+        const cached = loadCache(Tables.ProductCategories)
         if (!cached || !Array.isArray(cached))
-          throw new Error("No cached accounts available");
+          throw new Error('No cached categories available')
         return {
           items: cached as unknown as ProductCategoryDto,
           total: cached?.length,
-        } as unknown as QueryResult<ProductCategoryDto>;
+        } as unknown as QueryResult<ProductCategoryDto>
       }
     },
-  });
+  })
 }
 
 export function useProductCategoriesCommon(): UseQueryResult<
   CommonProductCategoryDto[]
 > {
-  const manager = useManager();
-  const { account } = useAuth();
-  const { loadCache, updateCache } = useLocalCache();
+  const manager = useManager()
+  const { account } = useAuth()
+  const { loadCache, updateCache } = useLocalCache()
 
   return useQuery({
     ...ProductCategoriesQueryKeys.common(),
@@ -83,32 +79,25 @@ export function useProductCategoriesCommon(): UseQueryResult<
         const result = await manager.ProductCategories.commonGet({
           deleted: false,
           userId: account?.id,
-        });
-        updateCache(Tables.ProductCategories, result);
-        return result;
+        })
+        updateCache(Tables.ProductCategories, result)
+        return result
       } catch (error) {
-        console.warn("API failed, loading accounts from cache", error);
+        console.warn('API failed, loading product categories from cache', error)
         const cached = loadCache(
           Tables.ProductCategories
-        ) as CommonProductCategoryDto[];
+        ) as CommonProductCategoryDto[]
         if (!cached || !Array.isArray(cached))
-          throw new Error("No cached accounts available");
+          throw new Error('No cached product categories available')
         return cached.map(
-          ({
+          ({ id, name, updatedAt }: CommonProductCategoryDto) => ({
             id,
             name,
-            type,
             updatedAt,
-            initial,
-          }: CommonProductCategoryDto) => ({
-            id,
-            name,
-            type,
-            updatedAt,
-            initial,
           })
-        );
+        )
       }
     },
-  });
+  })
 }
+

@@ -1,30 +1,30 @@
-import { useMemo } from "react";
-import { useTranslation } from "react-i18next";
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 
 // @sito/dashboard-app
-import { useFormDialog } from "@sito/dashboard-app";
+import { useFormDialog } from '@sito/dashboard-app'
 
 // providers
-import { useManager } from "providers";
+import { useManager } from 'providers'
 
 // hooks
-import { CurrenciesQueryKeys } from "hooks";
+import { CurrenciesQueryKeys } from 'hooks'
 
 // utils
-import { dtoToForm, emptyCurrency, formToDto } from "../utils";
+import { dtoToForm, emptyCurrency, formToDto } from '../utils'
 
 // lib
-import { AddCurrencyDto, CurrencyDto } from "lib";
+import type { AddCurrencyDto, CurrencyDto } from 'lib/models'
 
 // types
-import { CurrencyFormType } from "../types";
+import type { CurrencyFormType } from '../types'
 
 export function useAddCurrency() {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
-  const manager = useManager();
+  const manager = useManager()
 
-  const queryKey = useMemo(() => CurrenciesQueryKeys.all().queryKey, []);
+  const queryKey = useMemo(() => CurrenciesQueryKeys.all().queryKey, [])
 
   const { handleSubmit, ...rest } = useFormDialog<
     CurrencyDto,
@@ -35,14 +35,15 @@ export function useAddCurrency() {
     formToDto,
     dtoToForm,
     defaultValues: emptyCurrency,
-    mutationFn: (data) => manager.Currencies.insert(data),
-    onSuccessMessage: t("_pages:common.actions.add.successMessage"),
-    title: t("_pages:currencies.forms.add"),
+    mutationFn: data => manager.Currencies.insert(data),
+    onSuccessMessage: t('_pages:common.actions.add.successMessage'),
+    title: t('_pages:currencies.forms.add'),
     queryKey,
-  });
+  })
 
   return {
     handleSubmit,
     ...rest,
-  };
+  }
 }
+

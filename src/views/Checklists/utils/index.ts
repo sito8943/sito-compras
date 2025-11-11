@@ -1,41 +1,42 @@
-import { AccountDto, AccountType, AddAccountDto, UpdateAccountDto } from "lib";
-import { AccountFormType } from "../types";
+import type {
+  ChecklistDto,
+  AddChecklistDto,
+  UpdateChecklistDto,
+} from 'lib/models'
+import type { ChecklistFormType } from '../types'
 
 export const formToUpdateDto = ({
   currency,
   userId,
   ...rest
-}: AccountFormType): UpdateAccountDto => {
+}: ChecklistFormType): UpdateChecklistDto => {
   return {
     ...rest,
-    currencyId: currency?.id ?? 0,
     userId: userId,
-  };
-};
+  }
+}
 
 export const formToAddDto = ({
   currency,
   userId,
   ...rest
-}: AccountFormType): AddAccountDto => {
+}: ChecklistFormType): AddChecklistDto => {
   return {
     ...rest,
-    currencyId: currency?.id ?? 0,
     userId: userId,
-  };
-};
+  }
+}
 
-export const dtoToForm = (dto: AccountDto): AccountFormType => ({
+export const dtoToForm = (dto: ChecklistDto): ChecklistFormType => ({
   ...dto,
   userId: dto.user?.id ?? 0,
-});
+})
 
-export const emptyAccount: AccountFormType = {
+export const emptyChecklist: ChecklistFormType = {
   id: 0,
-  name: "",
+  name: '',
   balance: 0,
-  description: "",
-  type: AccountType.Physical,
-  currency: null,
+  description: '',
   userId: 0,
-};
+}
+

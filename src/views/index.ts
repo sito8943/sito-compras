@@ -4,4 +4,8 @@ export * from './NotFound'
 export * from './sitemap'
 export * from './menuMap'
 export * from './Info'
+export * from './Currencies'
+export * from './Checklists'
+export * from './ProductCategories'
+export * from './Products'
 

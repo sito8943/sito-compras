@@ -1,18 +1,18 @@
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation, Trans } from 'react-i18next'
 
 // types
-import { HowToStep } from "./types";
+import type { HowToStep } from './types'
 
 export const About = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
-  const steps = t("_pages:about.howTo.steps", {
+  const steps = t('_pages:about.howTo.steps', {
     returnObjects: true,
-  }) as HowToStep[];
+  }) as HowToStep[]
 
   return (
     <main className="py-10 px-5 gap-5">
-      <h2 className="text-4xl max-xs:text-2xl">{t("_pages:about.title")}</h2>
+      <h2 className="text-4xl max-xs:text-2xl">{t('_pages:about.title')}</h2>
       <Trans
         i18nKey="_pages:about.body"
         components={[
@@ -27,8 +27,8 @@ export const About = () => {
         ]}
       />
       <section>
-        <h3 className="text-2xl font-bold">{t("_pages:about.howTo.title")}</h3>
-        <p className="mt-2">{t("_pages:about.howTo.body")}</p>
+        <h3 className="text-2xl font-bold">{t('_pages:about.howTo.title')}</h3>
+        <p className="mt-2">{t('_pages:about.howTo.body')}</p>
 
         <ul className="mt-5 grid grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-5">
           {steps.map((step, idx) => (
@@ -44,5 +44,6 @@ export const About = () => {
         </ul>
       </section>
     </main>
-  );
-};
+  )
+}
+

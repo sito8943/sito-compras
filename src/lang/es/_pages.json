@@ -1,7 +1,7 @@
 {
   "pages": {
     "home": "Inicio",
-    "accounts": "Cuentas",
+    "checklists": "Cuentas",
     "products": "Transacciones",
     "productCategories": "Categorías",
     "currencies": "Monedas",
@@ -101,7 +101,7 @@
     "signIn": {
       "submit": "Entrar",
       "title": "Iniciar sesión",
-      "accountRecovery": {
+      "checklistRecovery": {
         "question": "¿Problemas con tu cuenta?",
         "link": "Recupérala aquí"
       },
