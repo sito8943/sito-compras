@@ -97,8 +97,30 @@ export class SupabaseAPIClient {
     q = this.applyQuery(q, query)
     const { data, error, count } = await q
     if (error) throw new Error(error.message)
+    // Flatten many-to-many joins for expected DTO shapes
+    let items = (data ?? []) as any[]
+    if (table === 'products') {
+      items = items.map((it) => ({
+        ...it,
+        categories: Array.isArray(it?.categories)
+          ? (it.categories as any[])
+              .map((c) => c?.category)
+              .filter(Boolean)
+          : null,
+      }))
+    }
+    if (table === 'product-categories') {
+      items = items.map((it) => ({
+        ...it,
+        products: Array.isArray(it?.products)
+          ? (it.products as any[])
+              .map((p) => p?.product)
+              .filter(Boolean)
+          : null,
+      }))
+    }
 
-    return { items: (data ?? []) as TDto[], total: count ?? (data?.length ?? 0) } as QueryResult<TDto>
+    return { items: items as TDto[], total: count ?? (items?.length ?? 0) } as QueryResult<TDto>
   }
 
   async doQuery<TResponse, TBody = unknown>(
@@ -207,4 +229,3 @@ export class SupabaseAPIClient {
     return ids.length
   }
 }
-

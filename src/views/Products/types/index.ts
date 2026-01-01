@@ -10,7 +10,7 @@ import type {
 } from '@sito/dashboard-app'
 
 // types
-import type { CommonChecklistDto, ProductDto } from 'lib/entities'
+import type { ProductDto } from 'lib/entities'
 
 export interface ProductCardPropsType extends ProductDto {
   actions: Action<ProductDto>[]
@@ -21,7 +21,7 @@ export interface ProductCardPropsType extends ProductDto {
 export interface ProductFormType
   extends Omit<
       ProductDto,
-      'deleted' | 'createdAt' | 'updatedAt' | 'user' | 'checklist'
+      'deleted' | 'createdAt' | 'updatedAt' | 'user' | 'currency'
     >,
     FieldValues {}
 
@@ -29,9 +29,7 @@ export type ProductFormPropsType = FormDialogPropsType<
   ProductFormType,
   ValidationError
 > & {
-  lockCategory?: boolean
-  lockChecklist?: boolean
-  checklist?: CommonChecklistDto | null
+  lockCategories: boolean
 }
 
 export interface TriggerProductPropsType extends ProductFormPropsType {

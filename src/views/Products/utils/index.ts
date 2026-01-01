@@ -27,6 +27,7 @@ export const emptyProduct = (): ProductFormType => ({
   count: 0,
   description: '',
   amount: 0,
+  currencyId: 0,
   date: formatForDatetimeLocal(),
 })
 

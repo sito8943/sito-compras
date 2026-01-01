@@ -4,11 +4,14 @@ export type RelationSelectConfig = Record<string, string>
 export const relationSelectConfig: RelationSelectConfig = {
   products:
     "*, " +
-    "category:product-categories(id, name, updatedAt), " +
-    "checklist:checklists(id, name, updatedAt)",
+    "currency:currencyId(id, name, symbol), " +
+    // many-to-many via products-categories-rel -> expose as categories
+    "categories:products-categories-rel(category:product-categories(id, name, updatedAt))",
   checklists: "*",
   currencies: "*",
-  "product-categories": "*",
+  // expose related products for each category through the relation table
+  "product-categories":
+    "*, products:products-categories-rel(product:products(id, name, price, count, updatedAt))",
 }
 
 export const getRelationSelect = (table: string): string | undefined =>
@@ -24,4 +27,3 @@ export const commonSelectConfig: RelationSelectConfig = {
 
 export const getCommonSelect = (table: string): string | undefined =>
   commonSelectConfig[table]
-

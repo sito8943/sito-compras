@@ -18,28 +18,13 @@ import type {
 import { Tables } from 'lib/api'
 
 // hooks
-import { useChecklistsCommon, useProductCategoriesCommon } from 'hooks'
+import { useProductCategoriesCommon } from 'hooks'
 
 export function ProductForm(props: ProductFormPropsType) {
-  const {
-    control,
-    checklist,
-    open,
-    isLoading,
-    setValue,
-    lockCategory = false,
-    lockChecklist = false,
-  } = props
+  const { control, open, isLoading, setValue, lockCategories = false } = props
   const { t } = useTranslation()
 
   // #region external entities
-
-  const checklists = useChecklistsCommon()
-
-  const checklistOptions = useMemo(
-    () => [...(checklists?.data ?? [])] as Option[],
-    [checklists.data]
-  )
 
   const categories = useProductCategoriesCommon()
 
@@ -55,10 +40,6 @@ export function ProductForm(props: ProductFormPropsType) {
   )
 
   // #endregion
-
-  useEffect(() => {
-    if (checklist && setValue) setValue('checklist', checklist)
-  }, [open, checklist, setValue])
 
   const initial = useWatch({ control, name: 'initial' })
 
@@ -77,35 +58,17 @@ export function ProductForm(props: ProductFormPropsType) {
       <Controller
         control={control}
         name="category"
-        disabled={isLoading || lockCategory}
+        disabled={isLoading || lockCategories}
         render={({ field: { value, onChange, ...rest } }) => (
           <AutocompleteInput
             options={categoryOptions}
             value={value}
             onChange={v => onChange(v)}
-            label={t('_entities:product.category.label')}
+            label={t('_entities:product.categories.label')}
             autoComplete={`${Tables.Products}-${t(
-              '_entities:product.category.label'
+              '_entities:product.categories.label'
             )}`}
-            multiple={false}
-            {...rest}
-          />
-        )}
-      />
-      <Controller
-        control={control}
-        name="checklist"
-        disabled={isLoading || lockChecklist}
-        render={({ field: { value, onChange, ...rest } }) => (
-          <AutocompleteInput
-            options={checklistOptions}
-            value={value}
-            onChange={v => onChange(v)}
-            label={t('_entities:product.checklist.label')}
-            autoComplete={`${Tables.Products}-${t(
-              '_entities:product.checklist.label'
-            )}`}
-            multiple={false}
+            multiple={true}
             {...rest}
           />
         )}
@@ -191,3 +154,4 @@ export function EditProductDialog(props: EditProductDialogPropsType) {
     </FormDialog>
   )
 }
+
