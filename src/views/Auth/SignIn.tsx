@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
+import { MD5 } from 'crypto-js'
 
 // @sito/dashboard
 import { State, TextInput } from '@sito/dashboard'
@@ -43,7 +44,10 @@ export function SignIn() {
     SessionDto,
     AuthDto
   >({
-    formToDto: (data: AuthDto) => data,
+    formToDto: (data: AuthDto) => ({
+      ...data,
+      password: MD5((data as any).password as string).toString(),
+    }),
     mutationFn: async (data: AuthDto) => await manager.Auth.login(data),
     onSuccess: data => {
       logUser(data)
@@ -167,4 +171,3 @@ export function SignIn() {
     </div>
   )
 }
-
