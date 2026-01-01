@@ -5,6 +5,7 @@ import ProductCategoryClient from './ProductCategoryClient'
 
 // @sito/dashboard-app
 import { IManager } from '@sito/dashboard-app'
+import { SupabaseAuth } from './SupabaseAuth'
 
 // config
 import { config } from '../../config'
@@ -17,6 +18,10 @@ export class Manager extends IManager {
 
   constructor() {
     super(config.apiUrl, config.auth.user)
+    // Use Supabase authentication under the hood while keeping IManager API
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.auth = new SupabaseAuth()
   }
 
   get ProductCategories(): ProductCategoryClient {
@@ -44,4 +49,3 @@ export class Manager extends IManager {
     return this.currencies
   }
 }
-

@@ -1,4 +1,5 @@
 import { BaseClient } from '@sito/dashboard-app'
+import { SupabaseAPIClient } from './SupabaseAPIClient'
 
 // enum
 import { Tables } from './types'
@@ -27,5 +28,7 @@ export default class CurrencyClient extends BaseClient<
    */
   constructor() {
     super(Tables.Currencies, config.apiUrl, config.auth.user)
+    // swap transport to Supabase while keeping BaseClient API
+    this.api = new SupabaseAPIClient(config.apiUrl, config.auth.user, true) as unknown as typeof this.api
   }
 }
