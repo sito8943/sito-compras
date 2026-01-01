@@ -10,7 +10,7 @@ import type {
   UpdateCurrencyDto,
   FilterCurrencyDto,
   AddCurrencyDto,
-} from 'lib/models'
+} from 'lib/entities'
 
 // config
 import { config } from '../../config'
@@ -29,4 +29,3 @@ export default class CurrencyClient extends BaseClient<
     super(Tables.Currencies, config.apiUrl, config.auth.user)
   }
 }
-

@@ -20,7 +20,7 @@ import type {
 } from '../types'
 
 // lib
-import type { AddProductDto, ProductDto } from 'lib/models'
+import type { AddProductDto, ProductDto } from 'lib/entities'
 
 export function useAddProduct(
   props: UseAddProductDialogActionPropsType
@@ -68,4 +68,3 @@ export function useAddProduct(
     ...rest,
   }
 }
-

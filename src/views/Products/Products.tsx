@@ -27,7 +27,7 @@ import {
 import { AddProductDialog, EditProductDialog, ProductGrid } from './components'
 
 // lib
-import type { FilterProductDto, ProductDto } from 'lib/models'
+import type { FilterProductDto, ProductDto } from 'lib/entities'
 import { Tables } from 'lib/api'
 
 // providers
@@ -206,4 +206,3 @@ export function Products() {
     </Page>
   )
 }
-

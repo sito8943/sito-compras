@@ -36,7 +36,7 @@ import {
 } from './hooks'
 
 // types
-import type { ProductCategoryDto } from 'lib/models'
+import type { ProductCategoryDto } from 'lib/entities'
 import { Tables } from 'lib/api'
 
 export function ProductCategories() {
@@ -132,4 +132,3 @@ export function ProductCategories() {
     </Page>
   )
 }
-

@@ -14,7 +14,7 @@ import { ProductsQueryKeys } from 'hooks'
 import { dtoToForm, emptyProduct, formToDto } from '../utils'
 
 // lib
-import type { UpdateProductDto, ProductDto } from 'lib/models'
+import type { UpdateProductDto, ProductDto } from 'lib/entities'
 
 // types
 import type { ProductFormType } from '../types'
@@ -48,4 +48,3 @@ export function useEditProduct(): UseActionDialog<ProductDto, ProductFormType> {
     ...rest,
   }
 }
-

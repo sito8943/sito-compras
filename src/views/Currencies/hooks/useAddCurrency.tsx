@@ -14,7 +14,7 @@ import { CurrenciesQueryKeys } from 'hooks'
 import { dtoToForm, emptyCurrency, formToDto } from '../utils'
 
 // lib
-import type { AddCurrencyDto, CurrencyDto } from 'lib/models'
+import type { AddCurrencyDto, CurrencyDto } from 'lib/entities'
 
 // types
 import type { CurrencyFormType } from '../types'
@@ -46,4 +46,3 @@ export function useAddCurrency() {
     ...rest,
   }
 }
-

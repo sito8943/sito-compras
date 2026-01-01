@@ -21,7 +21,7 @@ import type {
   CurrencyDto,
   ProductCategoryDto,
   ProductDto,
-} from 'lib/models'
+} from 'lib/entities'
 import { Tables } from 'lib/api/types.ts'
 
 const LocalCacheContext = createContext({} as LocalCacheProviderContextType)
@@ -85,4 +85,3 @@ const useLocalCache = () => {
 }
 
 export { LocalCacheProvider, useLocalCache }
-

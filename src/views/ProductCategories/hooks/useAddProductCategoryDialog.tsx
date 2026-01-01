@@ -16,7 +16,7 @@ import { dtoToForm, emptyProductCategory, formToDto } from "../utils";
 import type { ProductCategoryFormType } from "../types";
 
 // lib
-import type { AddProductCategoryDto, ProductCategoryDto } from "lib/models";
+import type { AddProductCategoryDto, ProductCategoryDto } from "lib/entities";
 
 export function useAddProductCategoryDialog() {
   const { t } = useTranslation();

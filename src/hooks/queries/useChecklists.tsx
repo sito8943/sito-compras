@@ -14,7 +14,7 @@ import type {
   ChecklistDto,
   CommonChecklistDto,
   FilterChecklistDto,
-} from 'lib/models'
+} from 'lib/entities'
 import { Tables } from 'lib/api'
 
 export const ChecklistsQueryKeys = {
@@ -95,4 +95,3 @@ export function useChecklistsCommon(): UseQueryResult<CommonChecklistDto[]> {
     },
   })
 }
-

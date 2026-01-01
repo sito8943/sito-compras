@@ -10,7 +10,7 @@ import type {
   UpdateChecklistDto,
   FilterChecklistDto,
   AddChecklistDto,
-} from 'lib/models'
+} from 'lib/entities'
 
 // config
 import { config } from '../../config'
@@ -29,4 +29,3 @@ export default class ChecklistClient extends BaseClient<
     super(Tables.Checklists, config.apiUrl, config.auth.user)
   }
 }
-

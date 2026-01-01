@@ -1,4 +1,4 @@
-import type { ProductCategoryDto, UpdateProductCategoryDto } from 'lib/models'
+import type { ProductCategoryDto, UpdateProductCategoryDto } from 'lib/entities'
 import type { ProductCategoryFormType } from '../types'
 
 export const formToDto = ({
@@ -28,4 +28,3 @@ export const emptyProductCategory: ProductCategoryFormType = {
   description: '',
   userId: 0,
 }
-

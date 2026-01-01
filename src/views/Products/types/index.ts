@@ -10,7 +10,7 @@ import type {
 } from '@sito/dashboard-app'
 
 // types
-import type { CommonChecklistDto, ProductDto } from 'lib/models'
+import type { CommonChecklistDto, ProductDto } from 'lib/entities'
 
 export interface ProductCardPropsType extends ProductDto {
   actions: Action<ProductDto>[]
@@ -51,4 +51,3 @@ export type UseAddProductActionDialog<TDto extends BaseEntityDto> =
 export type UseAddProductDialogActionPropsType = {
   checklist: CommonChecklistDto | null
 }
-

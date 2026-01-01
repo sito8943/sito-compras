@@ -2,7 +2,7 @@ import type {
   ChecklistDto,
   AddChecklistDto,
   UpdateChecklistDto,
-} from 'lib/models'
+} from 'lib/entities'
 import type { ChecklistFormType } from '../types'
 
 export const formToUpdateDto = ({
@@ -39,4 +39,3 @@ export const emptyChecklist: ChecklistFormType = {
   description: '',
   userId: 0,
 }
-

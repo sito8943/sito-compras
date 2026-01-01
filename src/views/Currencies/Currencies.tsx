@@ -33,7 +33,7 @@ import { useCurrenciesList, CurrenciesQueryKeys } from 'hooks'
 import { useAddCurrency, useEditCurrency } from './hooks'
 
 // types
-import type { CurrencyDto } from 'lib/models'
+import type { CurrencyDto } from 'lib/entities'
 import { Tables } from 'lib/api'
 
 export function Currencies() {
@@ -129,4 +129,3 @@ export function Currencies() {
     </Page>
   )
 }
-

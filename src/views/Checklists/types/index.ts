@@ -5,7 +5,7 @@ import type { Action } from '@sito/dashboard'
 import type { ValidationError, FormDialogPropsType } from '@sito/dashboard-app'
 
 // lib
-import type { ChecklistDto } from 'lib/models'
+import type { ChecklistDto } from 'lib/entities'
 
 export * from './actions'
 
@@ -38,4 +38,3 @@ export type EditChecklistDialogPropsType = FormDialogPropsType<
   ChecklistFormType,
   ValidationError
 >
-

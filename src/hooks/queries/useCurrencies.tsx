@@ -12,7 +12,7 @@ import type {
   CurrencyDto,
   CommonCurrencyDto,
   FilterCurrencyDto,
-} from 'lib/models'
+} from 'lib/entities'
 import { Tables } from 'lib/api'
 
 export const CurrenciesQueryKeys = {
@@ -94,4 +94,3 @@ export function useCurrenciesCommon(): UseQueryResult<CommonCurrencyDto[]> {
     },
   })
 }
-

@@ -5,7 +5,7 @@ import type {
   CommonChecklistDto,
   ProductDto,
   UpdateProductDto,
-} from 'lib/models'
+} from 'lib/entities'
 import type { ProductFormType } from '../types'
 
 export const formToDto = ({
@@ -41,4 +41,3 @@ export const emptyProduct = (
   amount: 0,
   date: formatForDatetimeLocal(),
 })
-

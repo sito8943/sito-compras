@@ -16,7 +16,7 @@ import { dtoToForm, emptyProductCategory, formToDto } from '../utils'
 import type { ProductCategoryFormType } from '../types'
 
 // lib
-import type { UpdateProductCategoryDto, ProductCategoryDto } from 'lib/models'
+import type { UpdateProductCategoryDto, ProductCategoryDto } from 'lib/entities'
 
 export function useEditProductCategoryDialog() {
   const { t } = useTranslation()
@@ -39,4 +39,3 @@ export function useEditProductCategoryDialog() {
     ...ProductCategoriesQueryKeys.all(),
   })
 }
-

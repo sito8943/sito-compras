@@ -16,7 +16,7 @@ import { dtoToForm, emptyChecklist, formToAddDto } from '../utils'
 import type { ChecklistFormType } from '../types'
 
 // lib
-import type { AddChecklistDto, ChecklistDto } from 'lib/models'
+import type { AddChecklistDto, ChecklistDto } from 'lib/entities'
 
 export function useAddChecklistDialog() {
   const { t } = useTranslation()
@@ -43,4 +43,3 @@ export function useAddChecklistDialog() {
     ...rest,
   }
 }
-

@@ -16,7 +16,7 @@ import { dtoToForm, emptyChecklist, formToUpdateDto } from '../utils'
 import type { ChecklistFormType } from '../types'
 
 // lib
-import type { UpdateChecklistDto, ChecklistDto } from 'lib/models'
+import type { UpdateChecklistDto, ChecklistDto } from 'lib/entities'
 
 export function useEditChecklistDialog() {
   const { t } = useTranslation()
@@ -39,4 +39,3 @@ export function useEditChecklistDialog() {
     ...ChecklistsQueryKeys.all(),
   })
 }
-

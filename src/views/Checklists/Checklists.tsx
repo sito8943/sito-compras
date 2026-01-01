@@ -34,7 +34,7 @@ import { useChecklistsList, ChecklistsQueryKeys } from 'hooks'
 import { useAddChecklistDialog, useEditChecklistDialog } from './hooks'
 
 // types
-import type { ChecklistDto } from 'lib/models'
+import type { ChecklistDto } from 'lib/entities'
 import { Tables } from 'lib/api'
 
 export function Checklists() {
@@ -136,4 +136,3 @@ export function Checklists() {
     </Page>
   )
 }
-

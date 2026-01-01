@@ -10,7 +10,7 @@ import type {
   UpdateProductCategoryDto,
   FilterProductCategoryDto,
   AddProductCategoryDto,
-} from 'lib/models'
+} from 'lib/entities'
 
 // config
 import { config } from '../../config'
@@ -29,4 +29,3 @@ export default class ProductCategoryClient extends BaseClient<
     super(Tables.ProductCategories, config.apiUrl, config.auth.user)
   }
 }
-

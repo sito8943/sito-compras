@@ -5,7 +5,7 @@ import type { Action } from '@sito/dashboard'
 import type { UseActionDialog } from '@sito/dashboard-app'
 
 // lib
-import type { CommonProductCategoryDto, ProductDto } from 'lib/models'
+import type { CommonProductCategoryDto, ProductDto } from 'lib/entities'
 
 // types
 import type { ProductFormType } from '../../types'
@@ -18,4 +18,3 @@ export type ProductContainerPropsType = {
   showFilters?: boolean
   setShowFilters?: Dispatch<SetStateAction<boolean>>
 }
-

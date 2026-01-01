@@ -14,7 +14,7 @@ import type {
   ProductCategoryDto,
   CommonProductCategoryDto,
   FilterProductCategoryDto,
-} from 'lib/models'
+} from 'lib/entities'
 import { Tables } from 'lib/api'
 
 export const ProductCategoriesQueryKeys = {
@@ -100,4 +100,3 @@ export function useProductCategoriesCommon(): UseQueryResult<
     },
   })
 }
-

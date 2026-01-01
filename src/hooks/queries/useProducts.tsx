@@ -14,7 +14,7 @@ import type { QueryParam, QueryResult } from '@sito/dashboard-app'
 import type { UseFetchPropsType } from './types.ts'
 
 // lib
-import type { ProductDto, CommonProductDto, FilterProductDto } from 'lib/models'
+import type { ProductDto, CommonProductDto, FilterProductDto } from 'lib/entities'
 import { Tables } from 'lib/api'
 
 export const ProductsQueryKeys = {
@@ -128,4 +128,3 @@ export function useProductsCommon(): UseQueryResult<CommonProductDto[]> {
     },
   })
 }
-

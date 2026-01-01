@@ -5,7 +5,7 @@ import type { Action } from '@sito/dashboard'
 import type { ValidationError, FormDialogPropsType } from '@sito/dashboard-app'
 
 // lib
-import type { CurrencyDto } from 'lib/models'
+import type { CurrencyDto } from 'lib/entities'
 
 export interface CurrencyCardPropsType extends CurrencyDto {
   actions: Action<CurrencyDto>[]
@@ -33,4 +33,3 @@ export type EditCurrencyDialogPropsType = FormDialogPropsType<
   CurrencyFormType,
   ValidationError
 >
-

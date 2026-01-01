@@ -1,4 +1,4 @@
-import type { CurrencyDto, UpdateCurrencyDto } from 'lib/models'
+import type { CurrencyDto, UpdateCurrencyDto } from 'lib/entities'
 import type { CurrencyFormType } from '../types'
 
 export const formToDto = (data: CurrencyFormType): UpdateCurrencyDto => ({
@@ -17,4 +17,3 @@ export const emptyCurrency: CurrencyFormType = {
   symbol: '',
   userId: 0,
 }
-

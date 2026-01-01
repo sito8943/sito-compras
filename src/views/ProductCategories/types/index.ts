@@ -5,7 +5,7 @@ import type { Action } from '@sito/dashboard'
 import type { ValidationError, FormDialogPropsType } from '@sito/dashboard-app'
 
 // lib
-import type { ProductCategoryDto } from 'lib/models'
+import type { ProductCategoryDto } from 'lib/entities'
 
 export * from './actions'
 
@@ -38,4 +38,3 @@ export type EditProductCategoryDialogPropsType = FormDialogPropsType<
   ProductCategoryFormType,
   ValidationError
 >
-
