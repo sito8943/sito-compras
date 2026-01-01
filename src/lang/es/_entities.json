@@ -71,10 +71,10 @@
       "label": "Descripción",
       "placeholder": "Ej: Acondicionador para cabello seco"
     },
-    "category": {
-      "label": "Categoria",
-      "placeholder": "Selecciona una categoria",
-      "required": "La categoria es requerida"
+    "categories": {
+      "label": "Categorias",
+      "placeholder": "Selecciona una categorias",
+      "required": "La categorias es requerida"
     },
     "checklist": {
       "label": "Listado",

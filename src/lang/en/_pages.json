@@ -153,7 +153,7 @@
   },
   "products": {
     "title": "Products",
-    "empty": "No products to load",
+    "empty": "You don't have any products. Add one to get started.",
     "add": "Add a product",
     "forms": {
       "add": "New product",
@@ -189,7 +189,7 @@
     "body": "<p>At <strong>Sito Compras</strong>, we believe shopping should be simple and organized. Create shopping lists, add products, and keep everything tidy in one place.</p><p>Built by <2>sito8943</2>, our goal is to help you plan and manage your shopping smoothly, safely, and without complications.</p><p>And the best part: <strong>it's completely free</strong>. Because organizing your life shouldn't cost you anything.</p>",
     "howTo": {
       "title": "What you can do",
-    "body": "With Sito Compras, you have everything you need to organize your shopping lists and items with simple, powerful tools.",
+      "body": "With Sito Compras, you have everything you need to organize your shopping lists and items with simple, powerful tools.",
       "steps": [
         {
           "title": "Currencies",
@@ -279,3 +279,4 @@
     "body": "The resource you are looking for was not found"
   }
 }
+

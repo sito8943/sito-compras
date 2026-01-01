@@ -80,10 +80,10 @@
     "description": {
       "init": "Automatically created by initial balance"
     },
-    "category": {
-      "label": "Category",
-      "placeholder": "Select an category",
-      "required": "Category is required"
+    "categories": {
+      "label": "Categories",
+      "placeholder": "Select an categories",
+      "required": "Categories is required"
     },
     "checklist": {
       "label": "Checklist",

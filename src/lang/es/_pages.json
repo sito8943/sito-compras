@@ -134,7 +134,7 @@
   },
   "products": {
     "title": "Productos",
-    "empty": "No hay productos para mostrar",
+    "empty": "No tienes productos. Agrega uno para empezar.",
     "add": "Agregar un producto",
     "forms": {
       "add": "Nuevo producto",
@@ -242,3 +242,4 @@
     "body": "El recurso que estás buscando no se encuentra"
   }
 }
+
