@@ -8,6 +8,10 @@ import {
   faCookieBite,
   faShieldHalved,
   faScroll,
+  faList,
+  faLayerGroup,
+  faCartShopping,
+  faCoins,
 } from '@fortawesome/free-solid-svg-icons'
 
 // types
@@ -15,8 +19,10 @@ import type { MenuItemType } from './types'
 
 export enum MenuKeys {
   Home = 'home',
+  Checklists = 'checklists',
   Products = 'products',
-  Movements = 'movements',
+  ProductCategories = 'productCategories',
+  Currencies = 'currencies',
   SignOut = 'signOut',
   SignIn = 'auth.signIn',
   About = 'about',
@@ -30,6 +36,26 @@ export const menuMap: MenuItemType[] = [
     page: MenuKeys.Home,
     path: '/',
     icon: <FontAwesomeIcon icon={faHome} />,
+  },
+  {
+    page: MenuKeys.Checklists,
+    path: '/checklists',
+    icon: <FontAwesomeIcon icon={faList} />,
+  },
+  {
+    page: MenuKeys.Products,
+    path: '/products',
+    icon: <FontAwesomeIcon icon={faCartShopping} />,
+  },
+  {
+    page: MenuKeys.ProductCategories,
+    path: '/product-categories',
+    icon: <FontAwesomeIcon icon={faLayerGroup} />,
+  },
+  {
+    page: MenuKeys.Currencies,
+    path: '/currencies',
+    icon: <FontAwesomeIcon icon={faCoins} />,
   },
   { type: 'divider' },
   {
@@ -66,4 +92,3 @@ export const menuMap: MenuItemType[] = [
     icon: <FontAwesomeIcon icon={faRightToBracket} />,
   },
 ]
-

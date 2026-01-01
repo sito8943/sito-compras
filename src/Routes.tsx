@@ -64,6 +64,28 @@ const TermsAndConditions = loadable(() =>
   }))
 );
 
+// Entities
+const Checklists = loadable(() =>
+  import("views").then((module) => ({
+    default: module.Checklists,
+  }))
+);
+const Products = loadable(() =>
+  import("views").then((module) => ({
+    default: module.Products,
+  }))
+);
+const ProductCategories = loadable(() =>
+  import("views").then((module) => ({
+    default: module.ProductCategories,
+  }))
+);
+const Currencies = loadable(() =>
+  import("views").then((module) => ({
+    default: module.Currencies,
+  }))
+);
+
 export const Routes = () => {
   return (
     <BrowserRouter>
@@ -78,6 +100,10 @@ export const Routes = () => {
         <Route path="/sign-out" element={<SignOut />} />
         <Route path="/" element={<View />}>
           <Route index element={<Home />} />
+          <Route path="/checklists" element={<Checklists />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product-categories" element={<ProductCategories />} />
+          <Route path="/currencies" element={<Currencies />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/cookies-policy" element={<CookiesPolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

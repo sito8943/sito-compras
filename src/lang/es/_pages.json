@@ -1,8 +1,8 @@
 {
   "pages": {
     "home": "Inicio",
-    "checklists": "Cuentas",
-    "products": "Transacciones",
+    "checklists": "Listados",
+    "products": "Productos",
     "productCategories": "Categorías",
     "currencies": "Monedas",
     "about": "Acerca de Sito Compras",
@@ -242,4 +242,3 @@
     "body": "El recurso que estás buscando no se encuentra"
   }
 }
-

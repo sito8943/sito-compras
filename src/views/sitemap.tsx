@@ -5,6 +5,10 @@ import type { NamedViewPageType, ViewPageType } from './types'
 
 export enum PageId {
   Home = 'home',
+  Checklists = 'checklists',
+  Products = 'products',
+  ProductCategories = 'productCategories',
+  Currencies = 'currencies',
   NotFound = 'not-found',
   About = 'about',
   CookiesPolicy = 'cookies-policy',
@@ -16,6 +20,22 @@ export const sitemap: ViewPageType[] = [
   {
     key: PageId.Home,
     path: '/',
+  },
+  {
+    key: PageId.Checklists,
+    path: '/checklists',
+  },
+  {
+    key: PageId.Products,
+    path: '/products',
+  },
+  {
+    key: PageId.ProductCategories,
+    path: '/product-categories',
+  },
+  {
+    key: PageId.Currencies,
+    path: '/currencies',
   },
   {
     key: PageId.NotFound,
@@ -111,4 +131,3 @@ export const flattenSitemap = (
 
   return result
 }
-
