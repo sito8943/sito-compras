@@ -88,7 +88,8 @@
     },
     "price": {
       "label": "Precio",
-      "placeholder": "Ej: 100"
+      "placeholder": "Ej: 100",
+      "required": "El precio es requerido"
     }
   },
   "productCategory": {
