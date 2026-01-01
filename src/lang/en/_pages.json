@@ -5,7 +5,7 @@
     "products": "Products",
     "productCategories": "Categories",
     "currencies": "Currencies",
-    "about": "About Sito Wallet",
+    "about": "About Sito Compras",
     "termsAndConditions": "Terms and Conditions",
     "cookiesPolicy": "Cookies Policy",
     "privacyPolicy": "Privacy Policy"
@@ -26,7 +26,7 @@
   "home": {
     "title": "Home",
     "guest": "Guest",
-    "appName": "Sito Wallet",
+    "appName": "Sito Compras",
     "welcome": "Welcome {{user}}",
     "dashboard": {
       "productTypeResume": {
@@ -87,24 +87,24 @@
   },
   "onboarding": {
     "welcome": {
-      "title": "Welcome to Sito Wallet",
-      "body": "Your personal assistant to organize your money, save more, and make smarter financial decisions."
+      "title": "Welcome to Sito Compras",
+      "body": "Your helper to create and manage shopping lists with ease."
     },
     "currencies": {
       "title": "Manage All Your Currencies",
-      "body": "Add and track any currency to keep control of your finances anywhere in the world."
+      "body": "Add and track currencies if you need them in your shopping flow."
     },
     "checklists": {
-      "title": "All Your Checklists in One Place",
-      "body": "Record bank checklists, cash, or cryptocurrencies and get a complete view of your money."
+      "title": "All Your Lists in One Place",
+      "body": "Create shopping lists, organize items, and keep everything in one place."
     },
     "products": {
       "title": "Full Control of Your Products",
-      "body": "Log income and expenses in seconds, and categorize them to know exactly where your money goes."
+      "body": "Add items to your lists with quantity, price, and category to plan better."
     },
     "get_started": {
-      "title": "You're Ready to Take Control",
-      "body": "Add your first checklist now and start your journey to healthier finances today."
+      "title": "You're Ready to Start",
+      "body": "Create your first shopping list and add products in seconds."
     }
   },
   "auth": {
@@ -182,49 +182,49 @@
     }
   },
   "footer": {
-    "copyright": "Sito Wallet App ©"
+    "copyright": "Sito Compras ©"
   },
   "about": {
-    "title": "About Sito Wallet",
-    "body": "<p>At <strong>Sito Wallet</strong>, we believe managing your money should be easy and stress-free. That's why we offer an app where you can manage all your checklists, both digital and physical, in one place.</p><p>Created with care by <2>sito8943</2>, our mission is to help you understand and organize your finances clearly, safely, and without complications.</p><p>And the best part: <strong>it's completely free</strong>. Because we believe having control over your money shouldn't cost you anything.</p>",
+    "title": "About Sito Compras",
+    "body": "<p>At <strong>Sito Compras</strong>, we believe shopping should be simple and organized. Create shopping lists, add products, and keep everything tidy in one place.</p><p>Built by <2>sito8943</2>, our goal is to help you plan and manage your shopping smoothly, safely, and without complications.</p><p>And the best part: <strong>it's completely free</strong>. Because organizing your life shouldn't cost you anything.</p>",
     "howTo": {
       "title": "What you can do",
-      "body": "With Sito Wallet, you have everything you need to fully control your finances, both digital and physical, thanks to its simple and powerful tools.",
+    "body": "With Sito Compras, you have everything you need to organize your shopping lists and items with simple, powerful tools.",
       "steps": [
         {
           "title": "Currencies",
           "items": [
-            "Create custom currencies.",
-            "Edit their details when values change or if you want to update their name or symbol.",
-            "Delete the ones you no longer use to keep your app clean.",
-            "View all your currencies in one place to know which currencies you are using."
+            "Create custom currencies if needed.",
+            "Edit details like name or symbol.",
+            "Delete the ones you don't use.",
+            "View all your currencies in one place."
           ]
         },
         {
-          "title": "Checklists",
+          "title": "Lists",
           "items": [
-            "Add physical checklists (cash, banks) or digital checklists (PayPal, cryptocurrencies).",
-            "Modify details such as initial balance, name, or checklist type.",
-            "Delete inactive or unused checklists.",
-            "View and organize all your checklists clearly."
+            "Create shopping lists for different needs (groceries, party, travel).",
+            "Rename or update list details anytime.",
+            "Delete lists you no longer need.",
+            "View and organize all your lists clearly."
           ]
         },
         {
           "title": "Product Categories",
           "items": [
-            "Create categories to organize your income and expenses (e.g., Food, Freelance Work).",
-            "Edit names and descriptions to match your way of classifying products.",
+            "Create categories to group products (e.g., Fruits, Cleaning).",
+            "Edit names and descriptions to match your needs.",
             "Delete obsolete or unnecessary categories.",
-            "List all categories to have an organized view of your finances."
+            "See all categories for a clear overview."
           ]
         },
         {
           "title": "Products",
           "items": [
-            "Record income and expenses with all details (date, amount, category, checklist).",
-            "Edit products if you made a mistake or want to update information.",
-            "Delete incorrect or duplicate products.",
-            "Check your history to analyze how and where your money is moving."
+            "Add products with name, quantity, price and category.",
+            "Edit product details anytime.",
+            "Delete products you no longer need.",
+            "Review items across your lists easily."
           ]
         }
       ]
@@ -232,23 +232,23 @@
   },
   "termsAndConditions": {
     "title": "Terms and Conditions",
-    "body": "<p>Welcome to <strong>Sito Wallet</strong>. By downloading, accessing, or using our app, you agree to comply with these Terms and Conditions. Please read them carefully.</p>",
+    "body": "<p>Welcome to <strong>Sito Compras</strong>. By downloading, accessing, or using our app, you agree to comply with these Terms and Conditions. Please read them carefully.</p>",
     "sections": [
       {
-        "title": "1. About Sito Wallet",
-        "body": "<p><strong>Sito Wallet</strong> is a free application with the goal of helping you manage and organize your finances (digital and physical) in one place. The app provides tools to manage currencies, checklists, product categories, and products. <strong>Sito Wallet</strong> is offered <strong>completely free of charge</strong>.</p>"
+        "title": "1. About Sito Compras",
+        "body": "<p><strong>Sito Compras</strong> is a free application to help you create and organize shopping lists in one place. The app provides tools to manage lists, products, categories, and currencies. <strong>Sito Compras</strong> is offered <strong>completely free of charge</strong>.</p>"
       },
       {
         "title": "2. Use of the Application",
-        "body": "<ul><li>You agree to use <strong>Sito Wallet</strong> only for lawful purposes and in accordance with these Terms.</li><li>You are responsible for the accuracy of the information you add (checklists, products, balances, etc.).</li><li>The app is intended for <strong>personal finance management</strong> only and must not be used for illegal or fraudulent activities.</li></ul>"
+        "body": "<ul><li>You agree to use <strong>Sito Compras</strong> only for lawful purposes and in accordance with these Terms.</li><li>You are responsible for the accuracy of the information you add (lists and products).</li><li>The app is intended for <strong>personal shopping organization</strong> and must not be used for illegal or fraudulent activities.</li></ul>"
       },
       {
         "title": "3. Data and Privacy",
-        "body": "<ul><li><strong>Sito Wallet does not sell or share your personal financial data</strong> with third parties.</li><li>The information you enter remains under your control.</li><li>We may collect non-identifiable usage data to improve the app (such as errors or performance metrics).</li></ul>"
+        "body": "<ul><li><strong>Sito Compras does not sell or share your personal data</strong> with third parties.</li><li>The information you enter remains under your control.</li><li>We may collect non-identifiable usage data to improve the app (such as errors or performance metrics).</li></ul>"
       },
       {
-        "title": "4. No Financial Advice",
-        "body": "<p><strong>Sito Wallet</strong> provides tools to record and organize your money, but we do not provide financial, tax, or investment advice. Any decisions you make based on the information in the app are your sole responsibility.</p>"
+        "title": "4. Scope",
+        "body": "<p><strong>Sito Compras</strong> provides tools to organize shopping lists. It is not intended to provide financial, tax, or investment advice.</p>"
       },
       {
         "title": "5. Changes and Updates",

@@ -19,7 +19,7 @@ export const About = () => {
           <p />,
           <strong />,
           <a
-            href="https://sito8943.com?utm_source=sitowallet&utm_medium=about_page&utm_campaign=portfolio_link"
+            href="https://sito8943.com?utm_source=sitocompras&utm_medium=about_page&utm_campaign=portfolio_link"
             target="_blank"
             rel="noopener"
             className="primary underline !font-bold"
@@ -46,4 +46,3 @@ export const About = () => {
     </main>
   )
 }
-
