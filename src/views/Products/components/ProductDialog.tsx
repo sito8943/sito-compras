@@ -80,7 +80,6 @@ export function ProductForm(props: ProductFormPropsType) {
         disabled={isLoading || lockCategory}
         render={({ field: { value, onChange, ...rest } }) => (
           <AutocompleteInput
-            required
             options={categoryOptions}
             value={value}
             onChange={v => onChange(v)}
@@ -99,7 +98,6 @@ export function ProductForm(props: ProductFormPropsType) {
         disabled={isLoading || lockChecklist}
         render={({ field: { value, onChange, ...rest } }) => (
           <AutocompleteInput
-            required
             options={checklistOptions}
             value={value}
             onChange={v => onChange(v)}
@@ -193,4 +191,3 @@ export function EditProductDialog(props: EditProductDialogPropsType) {
     </FormDialog>
   )
 }
-

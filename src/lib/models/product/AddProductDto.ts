@@ -4,5 +4,6 @@ export type AddProductDto = {
   count: number
   userId: number
   description: string
+  currencyId?: number
 }
 

@@ -15,17 +15,7 @@ import { Currency } from 'views'
 export function ProductCard(props: ProductCardPropsType) {
   const { t } = useTranslation()
 
-  const {
-    id,
-    name,
-    onClick,
-    actions,
-    description,
-    price,
-    category,
-    checklist,
-    deleted,
-  } = props
+  const { id, name, onClick, actions, description, price, deleted, currency } = props
 
   return (
     <ItemCard
@@ -47,8 +37,8 @@ export function ProductCard(props: ProductCardPropsType) {
             <>
               {price}{' '}
               <Currency
-                name={checklist?.currency?.name}
-                symbol={checklist?.currency?.symbol}
+                name={currency?.name}
+                symbol={currency?.symbol}
               />
             </>
           }

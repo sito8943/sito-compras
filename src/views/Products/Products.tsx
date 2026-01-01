@@ -1,37 +1,36 @@
-import { useLocation } from 'react-router-dom'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { parseQueries } from 'some-javascript-utils/browser'
 
 // @sito-dashboard
-import { useTableOptions } from '@sito/dashboard'
-import type { TabsType } from '@sito/dashboard-app'
 import {
   Page,
   useDeleteDialog,
   useExportActionMutate,
   useRestoreDialog,
   ConfirmationDialog,
-  TabsLayout,
+  GlobalActions,
+  PrettyGrid,
+  Empty,
+  Error,
 } from '@sito/dashboard-app'
 
 // hooks
 import { useAddProduct, useEditProduct } from './hooks'
-import {
-  ProductsQueryKeys,
-  useChecklistsCommon,
-  useProductCategoriesCommon,
-} from 'hooks'
+import { ProductsQueryKeys, useProductsList } from 'hooks'
 
 // components
-import { AddProductDialog, EditProductDialog, ProductGrid } from './components'
+import { AddProductDialog, EditProductDialog, ProductCard } from './components'
 
 // lib
-import type { FilterProductDto, ProductDto } from 'lib/entities'
+import type { ProductDto } from 'lib/entities'
 import { Tables } from 'lib/api'
 
 // providers
 import { useManager } from 'providers'
+
+// icons
+import { faAdd, faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // styles
 import './styles.css'
@@ -39,44 +38,9 @@ import './styles.css'
 export function Products() {
   const { t } = useTranslation()
 
-  const location = useLocation()
-
-  const [tabValue, setTabValue] = useState<number>()
-
   const manager = useManager()
 
-  const [showFilters, setShowFilters] = useState(false)
-
-  // #region categories
-
-  const categories = useProductCategoriesCommon()
-
-  const parsedCategories = useMemo(
-    () =>
-      categories?.data?.map(category => ({
-        ...category,
-        name: category.name,
-      })),
-    [categories?.data, t]
-  )
-
-  // #endregion categories
-
-  // #region checklists
-
-  const checklists = useChecklistsCommon()
-
-  const selectedChecklist = useMemo(
-    () =>
-      tabValue
-        ? checklists.data?.find(
-            checklist => checklist.id === Number(tabValue)
-          ) ?? null
-        : checklists.data?.[0] ?? null,
-    [checklists.data, tabValue]
-  )
-
-  // #endregion checklists
+  const { data, isLoading, error } = useProductsList({})
 
   // #region actions
 
@@ -90,17 +54,13 @@ export function Products() {
     ...ProductsQueryKeys.all(),
   })
 
-  const addProduct = useAddProduct({
-    checklist: selectedChecklist,
-  })
+  const addProduct = useAddProduct({})
 
   const editProduct = useEditProduct()
 
-  const { filters } = useTableOptions()
-
   const exportProducts = useExportActionMutate({
     entity: Tables.Products,
-    mutationFn: () => manager.Products.export(filters),
+    mutationFn: () => manager.Products.export(),
   })
 
   // #endregion
@@ -114,54 +74,6 @@ export function Products() {
     [deleteProduct, editProduct, restoreProduct]
   )
 
-  const getGridActions = useCallback(
-    (record: ProductDto) => [
-      deleteProduct.action(record),
-      restoreProduct.action(record),
-    ],
-    [deleteProduct, restoreProduct]
-  )
-
-  const checklistDesktopTabs = useMemo(() => {
-    return (checklists.data?.map(item => ({
-      id: item.id,
-      label: item.name,
-      to: `?checklistId=${item.id}`,
-      content: <>List here</>,
-    })) ?? []) as TabsType[]
-  }, [
-    checklists.data,
-    editProduct,
-    getTableActions,
-    parsedCategories,
-    showFilters,
-  ])
-
-  const checklistMobileTabs = useMemo(() => {
-    return (checklists.data?.map(item => ({
-      id: item.id,
-      label: item.name,
-      content: (
-        <ProductGrid
-          checklistId={item.id}
-          categories={parsedCategories ?? []}
-          getActions={getGridActions}
-          editAction={editProduct}
-        />
-      ),
-    })) ?? []) as TabsType[]
-  }, [checklists.data, editProduct, getGridActions, parsedCategories])
-
-  useEffect(() => {
-    const queries = parseQueries(location.search) as FilterProductDto
-
-    if (queries.checklistId && !isNaN(queries.checklistId)) {
-      const checklistId = Number(queries.checklistId)
-      if (checklistDesktopTabs.find(tab => tab.id === checklistId))
-        setTabValue(checklistId)
-    }
-  }, [checklistDesktopTabs, location])
-
   const pageToolbar = useMemo(() => {
     return [exportProducts.action()]
   }, [exportProducts])
@@ -169,40 +81,51 @@ export function Products() {
   return (
     <Page
       title={t('_pages:products.title')}
-      isLoading={checklists.isLoading || categories.isLoading}
+      isLoading={isLoading}
       actions={pageToolbar}
       addOptions={{
         onClick: () => addProduct.openDialog(),
-        disabled: checklists.isLoading,
+        disabled: isLoading,
         tooltip: t('_pages:products.add'),
       }}
-      filterOptions={{
-        onClick: () => setShowFilters(!showFilters),
-        disabled: checklists.isLoading,
-        tooltip: t('_accessibility:buttons.filters'),
-      }}
       queryKey={ProductsQueryKeys.all().queryKey}>
-      <TabsLayout
-        defaultTab={tabValue}
-        tabs={checklistDesktopTabs}
-        className="h-full max-xs:hidden"
-        tabsContainerClassName="checklist-tabs"
-      />
-      <TabsLayout
-        defaultTab={tabValue}
-        tabs={checklistMobileTabs}
-        className="h-full min-xs:hidden"
-        tabsContainerClassName="checklist-tabs"
-      />
+      {!error ? (
+        <PrettyGrid
+          data={data?.items}
+          emptyComponent={
+            <Empty
+              message={t('_pages:products.empty')}
+              iconProps={{
+                icon: faCartShopping,
+                className: 'text-5xl max-md:text-3xl text-gray-400',
+              }}
+              action={{
+                icon: <FontAwesomeIcon icon={faAdd} />,
+                id: GlobalActions.Add,
+                disabled: isLoading,
+                onClick: () => addProduct.openDialog(),
+                tooltip: t('_pages:products.add'),
+              }}
+            />
+          }
+          renderComponent={product => (
+            <ProductCard
+              actions={getTableActions(product)}
+              onClick={(id: number) => editProduct.openDialog(id)}
+              {...product}
+            />
+          )}
+        />
+      ) : (
+        <Error error={error} />
+      )}
 
       {/* Dialogs */}
       <EditProductDialog {...editProduct} />
       <AddProductDialog {...addProduct} />
       <ConfirmationDialog {...deleteProduct} />
       <ConfirmationDialog {...restoreProduct} />
-
-      {/* Category Dialogs */}
-      {/* <EditProductDialog /> */}
     </Page>
   )
 }
+

@@ -48,6 +48,5 @@ export type UseAddProductActionDialog<TDto extends BaseEntityDto> =
     lockChecklist?: boolean
   }
 
-export type UseAddProductDialogActionPropsType = {
-  checklist: CommonChecklistDto | null
-}
+export type UseAddProductDialogActionPropsType = {}
+

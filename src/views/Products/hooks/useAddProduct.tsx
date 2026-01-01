@@ -25,7 +25,7 @@ import type { AddProductDto, ProductDto } from 'lib/entities'
 export function useAddProduct(
   props: UseAddProductDialogActionPropsType
 ): AddProductDialogPropsType {
-  const { checklist } = props
+  const {} = props
 
   const { t } = useTranslation()
 
@@ -41,7 +41,7 @@ export function useAddProduct(
   >({
     formToDto,
     dtoToForm,
-    defaultValues: emptyProduct(checklist),
+    defaultValues: emptyProduct(),
     mutationFn: data => manager.Products.insert(data),
     onSuccessMessage: t('_pages:common.actions.add.successMessage'),
     title: t('_pages:products.forms.add'),
@@ -64,7 +64,7 @@ export function useAddProduct(
 
   return {
     handleSubmit,
-    checklist,
     ...rest,
   }
 }
+
