@@ -57,6 +57,32 @@ export function ProductForm(props: ProductFormPropsType) {
       />
       <Controller
         control={control}
+        render={({ field }) => <input {...field} type="hidden" />}
+        name="userId"
+      />
+      <Controller
+        control={control}
+        rules={{
+          required: `${t('_entities:base.name.required')}`,
+        }}
+        name="name"
+        disabled={isLoading}
+        render={({ field: { value, ...rest } }) => (
+          <TextInput
+            required
+            maxLength={20}
+            value={value ?? ''}
+            autoComplete={`${Tables.ProductCategories}-${t(
+              '_entities:base.name.label'
+            )}`}
+            label={t('_entities:base.name.label')}
+            placeholder={t('_entities:product.name.placeholder')}
+            {...rest}
+          />
+        )}
+      />
+      <Controller
+        control={control}
         name="category"
         disabled={isLoading || lockCategories}
         render={({ field: { value, onChange, ...rest } }) => (
@@ -73,6 +99,32 @@ export function ProductForm(props: ProductFormPropsType) {
           />
         )}
       />
+
+      <div>
+        <Controller
+          control={control}
+          rules={{
+            required: `${t('_entities:product.price.required')}`,
+          }}
+          name="price"
+          disabled={isLoading}
+          render={({ field: { value, ...rest } }) => (
+            <TextInput
+              required
+              maxLength={20}
+              value={value ?? ''}
+              type="number"
+              autoComplete={`${Tables.Products}-${t(
+                '_entities:product.price.label'
+              )}`}
+              label={t('_entities:product.price.label')}
+              placeholder={t('_entities:product.price.placeholder')}
+              {...rest}
+            />
+          )}
+        />
+      </div>
+
       <Controller
         control={control}
         rules={{
@@ -96,28 +148,6 @@ export function ProductForm(props: ProductFormPropsType) {
         )}
       />
 
-      <Controller
-        control={control}
-        rules={{
-          required: `${t('_entities:product.date.required')}`,
-        }}
-        name="date"
-        disabled={isLoading}
-        render={({ field: { value, ...rest } }) => (
-          <TextInput
-            required
-            maxLength={20}
-            value={value ?? ''}
-            type="datetime-local"
-            autoComplete={`${Tables.Products}-${t(
-              '_entities:product.date.label'
-            )}`}
-            label={t('_entities:product.date.label')}
-            placeholder={t('_entities:product.date.placeholder')}
-            {...rest}
-          />
-        )}
-      />
       <Controller
         control={control}
         name="description"
