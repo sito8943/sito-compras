@@ -10,7 +10,7 @@ import { useManager } from 'providers'
 import { ProductsQueryKeys } from 'hooks'
 
 // utils
-import { dtoToForm, emptyProduct, formToDto } from '../utils'
+import { dtoToForm, emptyProduct, formToAddDto } from '../utils'
 
 // types
 import type {
@@ -39,7 +39,7 @@ export function useAddProduct(
     ProductDto,
     ProductFormType
   >({
-    formToDto,
+    formToDto: formToAddDto,
     dtoToForm,
     defaultValues: emptyProduct(),
     mutationFn: data => manager.Products.insert(data),
@@ -67,4 +67,3 @@ export function useAddProduct(
     ...rest,
   }
 }
-

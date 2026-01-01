@@ -10,7 +10,7 @@ import { useManager } from "providers";
 import { ProductCategoriesQueryKeys } from "hooks";
 
 // utils
-import { dtoToForm, emptyProductCategory, formToDto } from "../utils";
+import { dtoToForm, emptyProductCategory, formToAddDto } from "../utils";
 
 // types
 import type { ProductCategoryFormType } from "../types";
@@ -29,7 +29,7 @@ export function useAddProductCategoryDialog() {
     ProductCategoryDto,
     ProductCategoryFormType
   >({
-    formToDto,
+    formToDto: formToAddDto,
     dtoToForm,
     defaultValues: emptyProductCategory,
     mutationFn: (data) => manager.ProductCategories.insert(data),

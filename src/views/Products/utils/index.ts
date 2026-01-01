@@ -1,7 +1,7 @@
 // @sito/dashboard-app
 import { formatForDatetimeLocal } from '@sito/dashboard-app'
 
-import type { ProductDto, UpdateProductDto } from 'lib/entities'
+import type { ProductDto, UpdateProductDto, AddProductDto } from 'lib/entities'
 import type { ProductFormType } from '../types'
 
 export const formToDto = ({
@@ -11,6 +11,28 @@ export const formToDto = ({
 }: ProductFormType): UpdateProductDto => {
   return {
     ...data,
+  }
+}
+
+export const formToAddDto = ({
+  id: _id,
+  createdAt: _c1,
+  updatedAt: _c2,
+  deleted: _c3,
+  user: _user,
+  currency: _currency,
+  checklist: _checklist,
+  categories: _categories,
+  ...data
+}: ProductFormType): AddProductDto => {
+  const { name, price, count, userId, description, currencyId } = data as ProductFormType
+  return {
+    name,
+    price,
+    count,
+    userId,
+    description,
+    currencyId,
   }
 }
 
@@ -30,4 +52,3 @@ export const emptyProduct = (): ProductFormType => ({
   currencyId: 0,
   date: formatForDatetimeLocal(),
 })
-

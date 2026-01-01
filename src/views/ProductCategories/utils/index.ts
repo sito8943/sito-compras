@@ -1,4 +1,4 @@
-import type { ProductCategoryDto, UpdateProductCategoryDto } from 'lib/entities'
+import type { ProductCategoryDto, UpdateProductCategoryDto, AddProductCategoryDto } from 'lib/entities'
 import type { ProductCategoryFormType } from '../types'
 
 export const formToDto = ({
@@ -13,6 +13,14 @@ export const formToDto = ({
     description,
     userId: userId,
   }
+}
+
+export const formToAddDto = ({
+  id: _id,
+  ...rest
+}: ProductCategoryFormType): AddProductCategoryDto => {
+  const { name, description, userId } = rest
+  return { name, description, userId }
 }
 
 export const dtoToForm = (
