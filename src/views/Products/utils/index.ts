@@ -25,11 +25,10 @@ export const formToAddDto = ({
   categories: _categories,
   ...data
 }: ProductFormType): AddProductDto => {
-  const { name, price, count, userId, description, currencyId } = data as ProductFormType
+  const { name, price, userId, description, currencyId } = data as ProductFormType
   return {
     name,
     price,
-    count,
     userId,
     description,
     currencyId,
@@ -46,7 +45,6 @@ export const emptyProduct = (userId = 0): ProductFormType => ({
   name: '',
   price: 0,
   userId,
-  count: 0,
   description: '',
   amount: 0,
   currencyId: 0,

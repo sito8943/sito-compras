@@ -11,7 +11,7 @@ export const relationSelectConfig: RelationSelectConfig = {
   currencies: "*",
   // expose related products for each category through the relation table
   "product-categories":
-    "*, products:products-categories-rel(product:products(id, name, price, count, updatedAt))",
+    "*, products:products-categories-rel(product:products(id, name, price, updatedAt))",
 }
 
 export const getRelationSelect = (table: string): string | undefined =>
@@ -19,7 +19,7 @@ export const getRelationSelect = (table: string): string | undefined =>
 
 // Common selects for /:table/common endpoints
 export const commonSelectConfig: RelationSelectConfig = {
-  products: "id, updatedAt, name, price, count",
+  products: "id, updatedAt, name, price",
   checklists: "id, updatedAt, name",
   currencies: "id, updatedAt, name, symbol",
   "product-categories": "id, updatedAt, name",

@@ -117,12 +117,11 @@ export function useProductsCommon(): UseQueryResult<CommonProductDto[]> {
         const cached = loadCache(Tables.Products) as CommonProductDto[]
         if (!cached || !Array.isArray(cached))
           throw new Error('No cached products available')
-        return cached.map(({ id, updatedAt, name, price, count }) => ({
+        return cached.map(({ id, updatedAt, name, price }) => ({
           id,
           updatedAt,
           name,
           price,
-          count,
         }))
       }
     },

@@ -52,7 +52,7 @@ export class SupabaseAPIClient {
     if (anyFilters.deleted !== undefined) q = q.eq("deleted", anyFilters.deleted as boolean)
 
     // Generic equals for known scalar fields
-    for (const key of ["name", "price", "count", "checklistId", "description", "completed", "symbol"]) {
+    for (const key of ["name", "price", "checklistId", "description", "completed", "symbol"]) {
       const val = anyFilters[key]
       if (val !== undefined && typeof val !== "object") q = q.eq(key, val as any)
     }
