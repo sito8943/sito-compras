@@ -136,10 +136,6 @@
     "add": "Add an checklist",
     "actions": {
       "viewProducts": { "text": "View products" },
-      "sync": {
-        "text": "Sync balance",
-        "successMessage": "Synced successful"
-      },
       "addProduct": {
         "text": "Add product",
         "successMessage": "Saved successful"

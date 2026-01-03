@@ -55,7 +55,7 @@ export function ChecklistForm(props: ChecklistFormPropsType) {
               '_entities:base.name.label'
             )}`}
             label={t('_entities:base.name.label')}
-            placeholder={t('_entities:account.name.placeholder')}
+            placeholder={t('_entities:checklist.name.placeholder')}
             {...rest}
           />
         )}
