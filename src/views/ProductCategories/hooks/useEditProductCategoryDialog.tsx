@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 // @sito/dashboard-app
-import { useFormDialog } from '@sito/dashboard-app'
+import { useAuth, useFormDialog } from '@sito/dashboard-app'
 
 // providers
 import { useManager } from 'providers'
@@ -22,6 +22,7 @@ export function useEditProductCategoryDialog() {
   const { t } = useTranslation()
 
   const manager = useManager()
+  const { account } = useAuth()
 
   return useFormDialog<
     ProductCategoryDto,
@@ -31,7 +32,7 @@ export function useEditProductCategoryDialog() {
   >({
     formToDto,
     dtoToForm,
-    defaultValues: emptyProductCategory,
+    defaultValues: emptyProductCategory(account?.id ?? 0),
     getFunction: id => manager.ProductCategories.getById(id),
     mutationFn: data => manager.ProductCategories.update(data),
     onSuccessMessage: t('_pages:common.actions.add.successMessage'),
@@ -39,3 +40,4 @@ export function useEditProductCategoryDialog() {
     ...ProductCategoriesQueryKeys.all(),
   })
 }
+

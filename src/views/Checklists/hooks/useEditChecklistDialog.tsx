@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 // @sito/dashboard-app
-import { useFormDialog } from '@sito/dashboard-app'
+import { useAuth, useFormDialog } from '@sito/dashboard-app'
 
 // providers
 import { useManager } from 'providers'
@@ -22,6 +22,7 @@ export function useEditChecklistDialog() {
   const { t } = useTranslation()
 
   const manager = useManager()
+  const { account } = useAuth()
 
   return useFormDialog<
     ChecklistDto,
@@ -31,7 +32,7 @@ export function useEditChecklistDialog() {
   >({
     formToDto: formToUpdateDto,
     dtoToForm,
-    defaultValues: emptyChecklist,
+    defaultValues: emptyChecklist(account?.id ?? 0),
     getFunction: id => manager.Checklists.getById(id),
     mutationFn: data => manager.Checklists.update(data),
     onSuccessMessage: t('_pages:common.actions.add.successMessage'),

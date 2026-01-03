@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 // @sito/dashboard-app
-import { useFormDialog } from '@sito/dashboard-app'
+import { useAuth, useFormDialog } from '@sito/dashboard-app'
 
 // providers
 import { useManager } from 'providers'
@@ -22,6 +22,7 @@ export function useEditCurrency() {
   const { t } = useTranslation()
 
   const manager = useManager()
+  const { account } = useAuth()
 
   return useFormDialog<
     CurrencyDto,
@@ -31,7 +32,7 @@ export function useEditCurrency() {
   >({
     formToDto,
     dtoToForm,
-    defaultValues: emptyCurrency,
+    defaultValues: emptyCurrency(account?.id ?? 0),
     getFunction: id => manager.Currencies.getById(id),
     mutationFn: data => manager.Currencies.update(data),
     onSuccessMessage: t('_pages:common.actions.add.successMessage'),
@@ -39,3 +40,4 @@ export function useEditCurrency() {
     ...CurrenciesQueryKeys.all(),
   })
 }
+

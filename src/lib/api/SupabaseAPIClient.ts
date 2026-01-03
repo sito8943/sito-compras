@@ -51,16 +51,18 @@ export class SupabaseAPIClient {
     if (anyFilters.userId !== undefined) q = q.eq("userId", anyFilters.userId as any)
     if (anyFilters.deleted !== undefined) q = q.eq("deleted", anyFilters.deleted as boolean)
 
-    // Generic equals for known scalar fields
+    // Generic equals for known scalar fields (ignore empty strings/nulls)
     for (const key of ["name", "price", "checklistId", "description", "completed", "symbol"]) {
       const val = anyFilters[key]
-      if (val !== undefined && typeof val !== "object") q = q.eq(key, val as any)
+      const isScalar = val !== undefined && typeof val !== "object"
+      const isEmptyString = typeof val === "string" && val.trim() === ""
+      if (isScalar && !isEmptyString && val !== null) q = q.eq(key, val as any)
     }
 
-    // Arrays
+    // Arrays (skip empty arrays)
     for (const key of Object.keys(anyFilters)) {
       const val = (anyFilters as any)[key]
-      if (Array.isArray(val)) q = q.in(key, val)
+      if (Array.isArray(val) && val.length > 0) q = q.in(key, val)
     }
 
     return q
@@ -75,10 +77,15 @@ export class SupabaseAPIClient {
     const sortingOrder = (query?.sortingOrder as Order) || "desc"
     curr = curr.order(sortingBy, { ascending: sortingOrder === "asc" })
 
-    if (query?.currentPage !== undefined && query?.pageSize !== undefined) {
-      const from = (query.currentPage - 1) * query.pageSize
-      const to = from + query.pageSize - 1
-      curr = curr.range(from, to)
+    if (query?.pageSize !== undefined) {
+      const size = Number(query.pageSize)
+      if (Number.isFinite(size) && size > 0) {
+        const cpRaw = Number(query?.currentPage ?? 1)
+        const cp = Number.isFinite(cpRaw) ? Math.max(1, cpRaw) : 1
+        const from = (cp - 1) * size
+        const to = from + size - 1
+        curr = curr.range(from, to)
+      }
     }
 
     return curr
