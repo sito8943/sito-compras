@@ -30,9 +30,9 @@ export const dtoToForm = (
   userId: dto.user?.id ?? 0,
 })
 
-export const emptyProductCategory: ProductCategoryFormType = {
+export const emptyProductCategory = (userId = 0): ProductCategoryFormType => ({
   id: 0,
   name: '',
   description: '',
-  userId: 0,
-}
+  userId,
+})

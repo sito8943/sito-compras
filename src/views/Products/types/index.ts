@@ -28,9 +28,7 @@ export interface ProductFormType
 export type ProductFormPropsType = FormDialogPropsType<
   ProductFormType,
   ValidationError
-> & {
-  lockCategories: boolean
-}
+> & {}
 
 export interface TriggerProductPropsType extends ProductFormPropsType {
   openDialog: (id?: number) => void
@@ -42,8 +40,7 @@ export type EditProductDialogPropsType = TriggerProductPropsType
 
 export type UseAddProductActionDialog<TDto extends BaseEntityDto> =
   UseActionDialog<TDto, ProductFormType> & {
-    lockCategory?: boolean
-    lockChecklist?: boolean
+    lockCategories?: boolean
   }
 
 export type UseAddProductDialogActionPropsType = {}

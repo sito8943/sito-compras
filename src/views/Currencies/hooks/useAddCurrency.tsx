@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 // @sito/dashboard-app
-import { useFormDialog } from '@sito/dashboard-app'
+import { useFormDialog, useAuth } from '@sito/dashboard-app'
 
 // providers
 import { useManager } from 'providers'
@@ -23,6 +23,7 @@ export function useAddCurrency() {
   const { t } = useTranslation()
 
   const manager = useManager()
+  const { account } = useAuth()
 
   const queryKey = useMemo(() => CurrenciesQueryKeys.all().queryKey, [])
 
@@ -34,7 +35,7 @@ export function useAddCurrency() {
   >({
     formToDto: formToAddDto,
     dtoToForm,
-    defaultValues: emptyCurrency,
+    defaultValues: emptyCurrency(account?.id ?? 0),
     mutationFn: data => manager.Currencies.insert(data),
     onSuccessMessage: t('_pages:common.actions.add.successMessage'),
     title: t('_pages:currencies.forms.add'),

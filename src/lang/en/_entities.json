@@ -71,16 +71,29 @@
       "greaterThan0": "Insufficient balance"
     }
   },
+  "productChecklist": {
+    "checklist": {
+      "label": "Checklist",
+      "placeholder": "Select a checklist",
+      "required": "Checklist is required"
+    },
+    "product": {
+      "label": "Product",
+      "placeholder": "Select a product",
+      "required": "Product is required"
+    },
+    "count": {
+      "label": "Count",
+      "placeholder": "Ex: 12",
+      "required": "Count is required",
+      "min": "Count cannot be less than 0"
+    }
+  },
   "product": {
     "name": {
       "label": "Name",
       "placeholder": "Ex: Conditioner",
       "required": "Name is required"
-    },
-    "amount": {
-      "label": "Amount",
-      "placeholder": "Ex: 100.00",
-      "required": "Amount is required"
     },
     "price": {
       "label": "Price",
@@ -99,6 +112,11 @@
       "label": "Checklist",
       "placeholder": "Select an checklist",
       "required": "Checklist is required"
+    },
+    "currency": {
+      "label": "Currency",
+      "placeholder": "Select a currency",
+      "required": "Currency is required"
     }
   },
   "productCategory": {

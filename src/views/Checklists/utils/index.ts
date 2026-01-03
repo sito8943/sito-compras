@@ -32,10 +32,10 @@ export const dtoToForm = (dto: ChecklistDto): ChecklistFormType => ({
   userId: dto.user?.id ?? 0,
 })
 
-export const emptyChecklist: ChecklistFormType = {
+export const emptyChecklist = (userId = 0): ChecklistFormType => ({
   id: 0,
   name: '',
   balance: 0,
   description: '',
-  userId: 0,
-}
+  userId,
+})

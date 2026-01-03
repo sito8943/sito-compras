@@ -40,12 +40,12 @@ export const dtoToForm = (dto: ProductDto): ProductFormType => ({
   ...dto,
 })
 
-export const emptyProduct = (): ProductFormType => ({
+export const emptyProduct = (userId = 0): ProductFormType => ({
   id: 0,
   initial: false,
   name: '',
   price: 0,
-  userId: 0,
+  userId,
   count: 0,
   description: '',
   amount: 0,

@@ -61,6 +61,24 @@
       "placeholder": "Selecciona productos para el listado"
     }
   },
+  "productChecklist": {
+    "checklist": {
+      "label": "Listado",
+      "placeholder": "Selecciona un listado",
+      "required": "El listado es requerido"
+    },
+    "product": {
+      "label": "Producto",
+      "placeholder": "Selecciona un producto",
+      "required": "El producto es requerido"
+    },
+    "count": {
+      "label": "Cantidad",
+      "placeholder": "Ej: 12",
+      "required": "La cantidad es requerida",
+      "min": "La cantidad no puede ser menor que 0"
+    }
+  },
   "products": {
     "name": {
       "label": "Nombre",
@@ -80,16 +98,15 @@
       "label": "Listado",
       "placeholder": "Selecciona un listado"
     },
-    "count": {
-      "label": "Cantidad",
-      "placeholder": "Ej: 12",
-      "required": "La cantidad es requerido",
-      "min": "La cantidad no puede ser menor que 0"
-    },
     "price": {
       "label": "Precio",
       "placeholder": "Ej: 100",
       "required": "El precio es requerido"
+    },
+    "currency": {
+      "label": "Moneda",
+      "placeholder": "Selecciona una moneda",
+      "required": "La moneda es requerida"
     }
   },
   "productCategory": {

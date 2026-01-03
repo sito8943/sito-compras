@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 
 // @sito/dashboard-app
 import type { UseActionDialog } from '@sito/dashboard-app'
-import { useEditAction, useFormDialog } from '@sito/dashboard-app'
+import { useEditAction, useFormDialog, useAuth } from '@sito/dashboard-app'
 
 // providers
 import { useManager } from 'providers'
@@ -23,6 +23,7 @@ export function useEditProduct(): UseActionDialog<ProductDto, ProductFormType> {
   const { t } = useTranslation()
 
   const manager = useManager()
+  const { account } = useAuth()
 
   const { openDialog: onClick, ...rest } = useFormDialog<
     ProductDto,
@@ -32,7 +33,7 @@ export function useEditProduct(): UseActionDialog<ProductDto, ProductFormType> {
   >({
     formToDto,
     dtoToForm,
-    defaultValues: emptyProduct(),
+    defaultValues: emptyProduct(account?.id ?? 0),
     getFunction: id => manager.Products.getById(id),
     mutationFn: data => manager.Products.update(data),
     onSuccessMessage: t('_pages:common.actions.add.successMessage'),

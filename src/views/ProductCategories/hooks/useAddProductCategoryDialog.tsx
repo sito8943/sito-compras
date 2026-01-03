@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 // @sito/dashboard-app
-import { useFormDialog } from "@sito/dashboard-app";
+import { useFormDialog, useAuth } from "@sito/dashboard-app";
 
 // providers
 import { useManager } from "providers";
@@ -22,6 +22,7 @@ export function useAddProductCategoryDialog() {
   const { t } = useTranslation();
 
   const manager = useManager();
+  const { account } = useAuth();
 
   const { handleSubmit, ...rest } = useFormDialog<
     ProductCategoryDto,
@@ -31,7 +32,7 @@ export function useAddProductCategoryDialog() {
   >({
     formToDto: formToAddDto,
     dtoToForm,
-    defaultValues: emptyProductCategory,
+    defaultValues: emptyProductCategory(account?.id ?? 0),
     mutationFn: (data) => manager.ProductCategories.insert(data),
     onSuccessMessage: t("_pages:common.actions.add.successMessage"),
     title: t("_pages:checklists.forms.add"),

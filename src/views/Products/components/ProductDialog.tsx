@@ -18,13 +18,20 @@ import type {
 import { Tables } from 'lib/api'
 
 // hooks
-import { useProductCategoriesCommon } from 'hooks'
+import { useCurrenciesCommon, useProductCategoriesCommon } from 'hooks'
 
 export function ProductForm(props: ProductFormPropsType) {
-  const { control, open, isLoading, setValue, lockCategories = false } = props
+  const { control, open, isLoading, setValue } = props
   const { t } = useTranslation()
 
   // #region external entities
+
+  const currencies = useCurrenciesCommon()
+
+  const currencyOptions = useMemo(
+    () => [...(currencies?.data ?? [])] as Option[],
+    [currencies.data]
+  )
 
   const categories = useProductCategoriesCommon()
 
@@ -84,7 +91,7 @@ export function ProductForm(props: ProductFormPropsType) {
       <Controller
         control={control}
         name="category"
-        disabled={isLoading || lockCategories}
+        disabled={isLoading}
         render={({ field: { value, onChange, ...rest } }) => (
           <AutocompleteInput
             options={categoryOptions}
@@ -100,7 +107,7 @@ export function ProductForm(props: ProductFormPropsType) {
         )}
       />
 
-      <div>
+      <div className="flex gap-2 items-center">
         <Controller
           control={control}
           rules={{
@@ -123,31 +130,26 @@ export function ProductForm(props: ProductFormPropsType) {
             />
           )}
         />
+        <Controller
+          control={control}
+          name="currency"
+          disabled={isLoading}
+          render={({ field: { value, onChange, ...rest } }) => (
+            <AutocompleteInput
+              required
+              options={currencyOptions}
+              value={value}
+              autoComplete={`${Tables.Products}-${t(
+                '_entities:product.currency.label'
+              )}`}
+              onChange={v => onChange(v)}
+              label={t('_entities:product.currency.label')}
+              multiple={false}
+              {...rest}
+            />
+          )}
+        />
       </div>
-
-      <Controller
-        control={control}
-        rules={{
-          required: `${t('_entities:product.amount.required')}`,
-        }}
-        name="amount"
-        disabled={isLoading}
-        render={({ field: { value, ...rest } }) => (
-          <TextInput
-            required
-            maxLength={20}
-            value={value ?? ''}
-            type="number"
-            autoComplete={`${Tables.Products}-${t(
-              '_entities:product.amount.label'
-            )}`}
-            label={t('_entities:product.amount.label')}
-            placeholder={t('_entities:product.amount.placeholder')}
-            {...rest}
-          />
-        )}
-      />
-
       <Controller
         control={control}
         name="description"
