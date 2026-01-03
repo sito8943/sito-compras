@@ -132,7 +132,7 @@
   },
   "checklists": {
     "title": "Checklists",
-    "empty": "You don’t have any bank checklists. Add one to get started.",
+    "empty": "You don't have any bank checklists. Add one to get started.",
     "add": "Add an checklist",
     "actions": {
       "viewProducts": { "text": "View products" },

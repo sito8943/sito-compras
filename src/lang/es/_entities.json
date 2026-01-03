@@ -47,6 +47,8 @@
   },
   "checklist": {
     "name": {
+      "label": "Nombre",
+      "required": "El nombre es requerido",
       "unique": "Ya existe un listado con ese nombre",
       "placeholder": "Ej: Productos de limpieza"
     },
@@ -93,10 +95,6 @@
       "label": "Categorias",
       "placeholder": "Selecciona una categorias",
       "required": "La categorias es requerida"
-    },
-    "checklist": {
-      "label": "Listado",
-      "placeholder": "Selecciona un listado"
     },
     "price": {
       "label": "Precio",

@@ -47,6 +47,8 @@
   },
   "checklist": {
     "name": {
+      "label": "Name",
+      "required": "Name is required",
       "placeholder": "Ex: Personal",
       "unique": "There is a checklist with that name already"
     },
@@ -107,11 +109,6 @@
       "label": "Categories",
       "placeholder": "Select an categories",
       "required": "Categories is required"
-    },
-    "checklist": {
-      "label": "Checklist",
-      "placeholder": "Select an checklist",
-      "required": "Checklist is required"
     },
     "currency": {
       "label": "Currency",
